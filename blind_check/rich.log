@@ -1,0 +1,12 @@
+(0.3, 0.25, -2.0, 0.8) poly-in-eps extrapolation deg 1: Z_extrap=0.948166403186-0.000000036186j  |Z_extrap - Z_2d|=5.61e-06  O(eps) coeff=-0.00149+0.38878j
+(0.3, 0.25, -2.0, 0.8) poly-in-eps extrapolation deg 2: Z_extrap=0.948160791592+0.000000041193j  |Z_extrap - Z_2d|=4.13e-08  O(eps) coeff=0.00000+0.38876j
+(0.3, 0.25, -2.0, 0.8) poly-in-eps extrapolation deg 3: Z_extrap=0.948160793332+0.000000000022j  |Z_extrap - Z_2d|=1.33e-09  O(eps) coeff=0.00000+0.38877j
+(0.4, 0.6, -1.0, 2.0) poly-in-eps extrapolation deg 1: Z_extrap=-0.165399015575+0.000000075179j  |Z_extrap - Z_2d|=4.64e-06  O(eps) coeff=-0.00128+0.02828j
+(0.4, 0.6, -1.0, 2.0) poly-in-eps extrapolation deg 2: Z_extrap=-0.165403658017-0.000000085071j  |Z_extrap - Z_2d|=8.51e-08  O(eps) coeff=-0.00000+0.02833j
+(0.4, 0.6, -1.0, 2.0) poly-in-eps extrapolation deg 3: Z_extrap=-0.165403664781-0.000000000124j  |Z_extrap - Z_2d|=7.09e-09  O(eps) coeff=0.00000+0.02830j
+(0.2, 0.1, -3.0, 1.3) poly-in-eps extrapolation deg 1: Z_extrap=0.900725220289+0.000000014559j  |Z_extrap - Z_2d|=4.86e-06  O(eps) coeff=-0.00124+0.28627j
+(0.2, 0.1, -3.0, 1.3) poly-in-eps extrapolation deg 2: Z_extrap=0.900720360097-0.000000016665j  |Z_extrap - Z_2d|=1.70e-08  O(eps) coeff=0.00000+0.28627j
+(0.2, 0.1, -3.0, 1.3) poly-in-eps extrapolation deg 3: Z_extrap=0.900720359024+0.000000000008j  |Z_extrap - Z_2d|=4.63e-09  O(eps) coeff=0.00000+0.28627j
+(0.45, 0.8, -0.5, 2.7) poly-in-eps extrapolation deg 1: Z_extrap=-0.361176215840-0.000000048471j  |Z_extrap - Z_2d|=9.43e-06  O(eps) coeff=0.00266-0.07840j
+(0.45, 0.8, -0.5, 2.7) poly-in-eps extrapolation deg 2: Z_extrap=-0.361166790062+0.000000054670j  |Z_extrap - Z_2d|=5.49e-08  O(eps) coeff=0.00000-0.07843j
+(0.45, 0.8, -0.5, 2.7) poly-in-eps extrapolation deg 3: Z_extrap=-0.361166787038+0.000000000050j  |Z_extrap - Z_2d|=2.08e-09  O(eps) coeff=0.00000-0.07841j
