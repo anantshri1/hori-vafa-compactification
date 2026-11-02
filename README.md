@@ -16,7 +16,7 @@ Runtimes range from seconds to ~20 min (noted). Every claim below is "computed" 
 | 7 | T[SU(2)] Higgs copy → T*CP¹ GLSM; Coulomb copy → continuum | `tsu2_limit2.py` (~15 min) | sector errors O(eps); copy-B profile collapse to 4 digits |
 | 8 | T[SU(2)] 2d identity GLSM = Coulomb gas | `tsu2_coulomb.py` (~20 min) | ~3e-4 (limited by slow GLSM flux sum) |
 | 9 | CS pair exact 3d map (symmetric gauge) | `pair_map.py` (~20 s) | best candidate err ~1e-15: wB=y^2, a=wA^{1/2}, rB=(1-rA)/2 |
-| 10 | Same duality in Anant's gauge (both R = 1-r, η on Q̃, A-side η = w x^{1-r}) | `pair_hisgauge.py` + snippet in log | ~4e-15 |
+| 10 | Same duality in paper's gauge (both R = 1-r, η on Q̃, A-side η = w x^{1-r}) | `pair_hisgauge.py` + snippet in log | ~4e-15 |
 | 11 | Operator check: triplet currents at x², dressed-monopole triplet at x^{3+r} | `pair_ops.py` | coefficients −2, +1 as reported |
 | 12 | Flux map (w x^{3r-1})^{nA/4}, nax = nA/2 | `pair_fluxmap.py` | `nA/2` rows have constant |R| |
 | 13 | n>0 is the CP¹ Higgs phase; sectors → GLSM at O(eps) (after measure fix) | `pair_sign.py` (~10 min) | ratio/eps → 1 |
