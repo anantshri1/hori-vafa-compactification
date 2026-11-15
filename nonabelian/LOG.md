@@ -23,3 +23,7 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
   omits mixed CS terms on two links (parity requires K_ab = 1/2 sum Q_a Q_b mod 1). The figure + caption are correct.
 - Grid aliasing (Ng=12) produced a 3e-3 floor that I first read as a physics mismatch; Ng=20 gives 2e-5.
 - Calibrating on N=1 alone did not fix the R-mixing of the multi-node columns (it has no column with 2 nodes).
+4. Higgs limit, zero-flux sector (higgs_m00.py): 3d sector of U(2)_{(0,-2)} [4,0] -> Gr(2,4) GLSM sector (Vandermonde
+   eps^2 sigma_12^2, Gamma ratios, (1-q)^{R-1-2i(sigma+mu)}) with |ratio-1| = 0.43, 0.11, 0.057 at eps = 0.2, 0.1, 0.05: O(eps).
+   Next: nonzero flux sectors need a background topological flux scaled ~1/eps (as for CP^1) to give a finite 2d FI.
+- x=0.12 refined run was killed when the cloud environment restarted; not needed (x=0.05 result stands).
