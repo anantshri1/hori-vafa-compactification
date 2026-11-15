@@ -27,3 +27,8 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
    eps^2 sigma_12^2, Gamma ratios, (1-q)^{R-1-2i(sigma+mu)}) with |ratio-1| = 0.43, 0.11, 0.057 at eps = 0.2, 0.1, 0.05: O(eps).
    Next: nonzero flux sectors need a background topological flux scaled ~1/eps (as for CP^1) to give a finite 2d FI.
 - x=0.12 refined run was killed when the cloud environment restarted; not needed (x=0.05 result stands).
+5. Background fluxes added to idx.py (FI: z_a^{-n_f}; mixed gauge-flavour: z_a^{K n_f}; chirals: nu += charge*n_f).
+   Engine check (bg_check.py): abelian CS pair I_A(n) = (w x^{3r-1})^{n/4} I_B(n_a = n/2) reproduced to 1e-10 for n = +-2, 4.
+6. U(2) sector map with background topological flux (bg_u2.py, n = 2): eta-flux in {+-2, +-1} alone does NOT give a
+   monomial ratio (best: eta-flux -2, residual 1e-2 after allowing a w-power). Missing: flavour/column background fluxes
+   and/or an x^{...} R-mixing prefactor; the ratio test must also allow y-powers. Open.

@@ -17,7 +17,8 @@ def qpoch(a, q, tol=1e-17):
         out *= (1 - t); t *= q
     return out
 
-def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, vector=None, weyl=1, signfn=None):
+def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, vector=None, weyl=1, signfn=None, bg=None):
+    bg = bg or {}
     """n gauge U(1) factors (or Cartan of U(N) with vector=N). flav_vals: dict flavour -> complex fugacity value
     (log-free: we need log for fractional powers -> pass as (value, log) via exp). Returns the index (complex)."""
     q = x*x
@@ -34,12 +35,12 @@ def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, vector=None, 
         Km = [sum(Fr(K[a][b])*int(m[b]) for b in range(n)) for a in range(n)]
         for a in range(n): ez[a] += Km[a]
         for (a, f), lev in Kf.items():
-            ef[f] += Fr(lev)*int(m[a])          # background flux of f is zero
+            ef[f] += Fr(lev)*int(m[a]); ez[a] += Fr(lev)*bg.get(f, 0)
         for a, fl in FI.items():
-            for f in fl: ef[f] -= int(m[a])
+            for f in fl: ef[f] -= int(m[a]); ez[a] -= bg.get(f, 0)
         val = np.ones(grids[0].shape, dtype=complex)
         for Q, fl, R in chirals:
-            nu = int(sum(Q[a]*m[a] for a in range(n)))
+            nu = int(sum(Q[a]*m[a] for a in range(n)) + sum(c*bg.get(f, 0) for f, c in fl.items()))
             R = Fr(R)
             # zero point (zeta x^{R-1})^{-|nu|/2}
             for a in range(n): ez[a] += Fr(-Q[a]*abs(nu), 2)
