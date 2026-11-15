@@ -15,7 +15,8 @@ def mir(y, e, nb):
     def patched(*a, **k): k['bg'] = {'eta': nb}; return orig(*a, **k)
     RF.theory_index = patched
     v = RF.mirror(y, e, 1, M=2, Ng=20); RF.theory_index = orig; return v
-for n in (2,):
+if __name__ == '__main__':
+ for n in (2,):
     E = [el(list(y3) + [1/np.prod(y3)], e, n) for y3, e in pts]
     print('E', E, flush=True)
     for nb in (n, -n, n//2, -n//2):

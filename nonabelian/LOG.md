@@ -32,3 +32,8 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
 6. U(2) sector map with background topological flux (bg_u2.py, n = 2): eta-flux in {+-2, +-1} alone does NOT give a
    monomial ratio (best: eta-flux -2, residual 1e-2 after allowing a w-power). Missing: flavour/column background fluxes
    and/or an x^{...} R-mixing prefactor; the ratio test must also allow y-powers. Open.
+7. Flux-2 sector map (bg_u2_fit.py, bg_u2_check.py): with mirror eta-flux -n, the ratio I_el(n=2)/I_mir is close to a
+   monomial C w (y1 y2)^2 (powers read off: w 1.02, y1 1.99, y2 1.97, y3 -0.01; the y1 y2 factor matches the thesis
+   background term e^{2 pi i eta (X_1 + X_2)}), C ~ x^{2.1}. But C differs by 0.9% between two points, unchanged by
+   M = 2 -> 3. Either an extra ingredient (another background flux / R-mixing) or grid aliasing (Ng=20) with flux.
+   Next: Ng = 24/28 to separate the two; then flux sectors of the Higgs limit.
