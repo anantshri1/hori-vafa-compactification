@@ -7,7 +7,7 @@ import numpy as np, json, os, sys
 from idx import theory_index
 x, r = float(sys.argv[1]) if len(sys.argv) > 1 else 0.15, 0.3
 h = (1-r)/2; Radj = 1 + r
-M_el, M_mir, Ng_el, Ng_mir = 8, 3, 32, 12
+M_el, M_mir, Ng_el, Ng_mir = 10, 3, 48, 12
 pts = [((np.exp(0.4j), np.exp(1.1j), np.exp(-0.6j)), np.exp(0.9j)), ((np.exp(-0.8j), np.exp(0.5j), np.exp(1.7j)), np.exp(-0.7j))]
 def ys(t): y1, y2, y3 = t; return [y1, y2, y3, 1/(y1*y2*y3)]
 def electric(yv, w):

@@ -17,7 +17,7 @@ def qpoch(a, q, tol=1e-17):
         out *= (1 - t); t *= q
     return out
 
-def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, vector=None, weyl=1):
+def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, vector=None, weyl=1, signfn=None):
     """n gauge U(1) factors (or Cartan of U(N) with vector=N). flav_vals: dict flavour -> complex fugacity value
     (log-free: we need log for fractional powers -> pass as (value, log) via exp). Returns the index (complex)."""
     q = x*x
@@ -55,10 +55,11 @@ def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, vector=None, 
                 for b in range(N):
                     if a == b: continue
                     d = abs(int(m[a] - m[b]))
-                    val *= (1 - np.exp(logz[a] - logz[b])*x**d)
+                    val *= (1 - (-1)**int(m[a] - m[b])*np.exp(logz[a] - logz[b])*x**d)   # (-1)^nu convention of Chir carried to W-bosons
                     ex += Fr(-d, 2)
         for a in range(n):
             assert ez[a].denominator == 1, ("non-integer gauge power", a, ez[a], m)
         mon = np.exp(sum(float(ez[a])*logz[a] for a in range(n)) + sum(float(ef[f])*lf[f] for f in flav_vals)) * x**float(ex)
+        if signfn is not None: sign = signfn(m)
         total += sign*np.mean(val*mon)
     return total/weyl
