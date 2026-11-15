@@ -37,3 +37,9 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
    background term e^{2 pi i eta (X_1 + X_2)}), C ~ x^{2.1}. But C differs by 0.9% between two points, unchanged by
    M = 2 -> 3. Either an extra ingredient (another background flux / R-mixing) or grid aliasing (Ng=20) with flux.
    Next: Ng = 24/28 to separate the two; then flux sectors of the Higgs limit.
+8. The 1% residual of item 7 is NUMERICAL, on the electric side (bg_diag.py): with background flux n=2 the electric
+   flux sum is unstable in the cutoff: (M,Ng) = (8,40) 1.5674e-3, (8,160) 1.5664e-3, (9,160) 1.5652e-3+2.4e-5i,
+   (10,200) 1.05e-3-2.1e-4i. Large-flux sectors have exponentially large integrands whose gauge projection cancels
+   catastrophically in double precision; grid refinement does not cure it. The mirror is stable (Ng 20 vs 26: 1e-8).
+   Fix needed: exact projection (Laurent/series in x, or high precision) for the electric side before the map can be
+   pinned beyond ~1e-3. The monomial C w (y1 y2)^2 with eta-flux -n stands as the working hypothesis.
