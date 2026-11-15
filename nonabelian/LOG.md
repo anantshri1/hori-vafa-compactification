@@ -43,3 +43,7 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
    catastrophically in double precision; grid refinement does not cure it. The mirror is stable (Ng 20 vs 26: 1e-8).
    Fix needed: exact projection (Laurent/series in x, or high precision) for the electric side before the map can be
    pinned beyond ~1e-3. The monomial C w (y1 y2)^2 with eta-flux -n stands as the working hypothesis.
+9. Flux-2 sector map CONFIRMED in a stable regime (bg_u2_stable.py; r=0.45, x=0.03, electric M=6 Ng=96 where M=5,6 agree
+   to 3e-5, mirror M=3): I_el(top flux 2) = x^{3(1-r)} w (y1 y2)^2 I_mir(eta-flux -2), C = 0.0030711, 0.0030719 at two
+   points vs x^{3(1-r)} = 0.0030697 (agreement ~3e-4; the earlier r=0.3, x=0.05 value C ~ x^{2.1} = x^{3(1-r)} too).
+   Item 8's diagnosis stands for M >= 7 (cancellation), but the 1% in item 7 was mostly flux truncation at r=0.3.
