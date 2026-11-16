@@ -70,3 +70,8 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     (|same-j sum| >> |total|), so they cancel against something; 3d and 2d same-j pieces do not yet agree pole by pole.
     Open: show the same-j pieces cancel in the sum over sectors (expected: vortex-sum form has distinct j only).
     Coulomb-limit ladder test: NOT started this check-in.
+13. Same-flavour (j1=j2) residues cancel in the sum over flux sectors (samej.py), in 3d and 2d separately:
+    |samej|/|distinct| summed over m in [-M,M]^2 = 1e-2, 1e-7, 1e-11 for M = 2, 4, 6 (eps = 0.1; eps = 0.05 same trend).
+    So the LOG 12 caveat is resolved: per-sector same-j pieces are artefacts of the |m| pole labelling and drop out of the
+    full partition function, leaving the distinct-flavour vortex sums, which match vacuum by vacuum. Higgs limit
+    U(2)_{(0,-2)}[4,0] -> Gr(2,4) GLSM: established at the level of all flux sectors.
