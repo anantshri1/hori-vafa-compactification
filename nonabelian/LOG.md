@@ -75,3 +75,13 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     So the LOG 12 caveat is resolved: per-sector same-j pieces are artefacts of the |m| pole labelling and drop out of the
     full partition function, leaving the distinct-flavour vortex sums, which match vacuum by vacuum. Higgs limit
     U(2)_{(0,-2)}[4,0] -> Gr(2,4) GLSM: established at the level of all flux sectors.
+14. Coulomb limit of the planar mirror: CONTINUUM FOUND (coulomb_dir.py). Zero gauge flux, eta-flux -n (image of the
+    electric Higgs-limit background). The B chiral carries |nu| = n, so its modulus is sigma-independent on the real
+    contour (it is the one that becomes massive). Large-sigma falloff |f| ~ s^p along rays (eps=0.02, s=4..32):
+      (1,1,1,1): p = -0.77..-1.0   (2d prediction -0.7: only the -T chiral charged)
+      (1,0,0,0): -1.39 (pred -1.4) ; (0,1,0,0): -1.72 (pred -1.7) ; (0,0,1,0) and (1,0,1,1): -1.0..-1.28 (pred -1.0)
+      generic (1,2,3,4): -3.4 (pred 5(r-1)+(1-2r) = -3.1)
+    2d counting rule |Gamma(R/2-iQ.s)/Gamma(1-R/2+iQ.s)| ~ |Q.s|^{R-1} reproduced. Non-integrable cone: the 2-plane
+    sigma_L = sigma_B = sigma_R (coords (a,b,a,a)); there only T-L, -T, T-R, B-T are charged, p = 3(r-1)+(1-2r) = -1.7 > -2.
+    So the 2d mirror has a 2-dimensional continuum (non-compact Coulomb directions), lifted at most by oscillating FI/CS
+    phases. Per agreement with Anant: STOPPED here to ask how to treat it.
