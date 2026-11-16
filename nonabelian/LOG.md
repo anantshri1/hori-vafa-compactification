@@ -119,3 +119,17 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     backgrounds (B gets FI-type background, L,T,R get mixed-CS-induced ones), compare (i) its eta dependence and (ii) its
     eps -> 0 limit with the Gr(2,4) sectors. 4 nodes x M~6-8 x Ng^4 is the first job where a GPU (Anant's HF credits) helps.
     Elliptic genus: not started; only meaningful once the light theory is identified.
+18. (check-in #10) Shifted flux sectors (idx.py gained mshift=; shifted.py, slices.py). Mirror with eta-flux -n:
+    - Boxes centred at m_B = -n contribute as much as, or more than, the box at 0: |shift/box0| = 0.83 (x=0.05),
+      1.49 (x=0.3) for n=4. So LOG 15's "full = C * red" used a truncation (M=3 < n) that misses O(1) of the index.
+    - Beyond the monomial C = (eta x^{1-r})^{n/2}, eta dependence of each box is x-suppressed (4e-5 at x=0.05,
+      ~4e-3 at x=0.3); with bg=0 it is 1e-2 at x=0.05. Must be re-examined as x -> 1.
+    - Profile along the B-flux line (n=8, x=0.3, others |m|<=1, slices_n8_x03.log): |slice/C| =
+      0.04 (m_B=+2), 0.12, 0.58 (0), 3.6, 5.1, 6.8, 8.9, 11.6, 15.2, 19.7, 23.1 (m_B=-8 = -n), 3.3, 0.04 (m_B=-10).
+      Support is the interval m_B in [-n, 0] with sharp edges and a rotating phase across it.
+    Interpretation: the 3d precursor of the 2d continuum is a LINE of flux sectors of length n ~ 1/eps; with
+    u = eps m_B it becomes a COMPACT variable u in [-eps n, 0] (finite interval), carrying an oscillating weight --
+    i.e. a 2d twisted-chiral direction on a finite interval rather than a non-compact Coulomb branch. Caveat: L, T, R
+    fluxes truncated at |m| <= 1; their couplings to m_B (mixed CS -1/2, +1/2) probably require shifts ~ m_B/2 too.
+    Next: (1) widen L,T,R windows co-moving with m_B (shift m_L, m_R ~ m_B/2?); (2) n = 8, 12, 16 to check the profile
+    collapses as a function of m_B/n; (3) fit the slice phase per step against eta/theta and y. GPU worthwhile for (1)-(2).

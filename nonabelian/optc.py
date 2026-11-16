@@ -16,6 +16,7 @@ rat = [y[i+1]/y[i] for i in range(3)]
 fl = {'eta': 1/e, 'f1': rat[0], 'fT': rat[1]*x**(r/2), 'fB': rat[1]*x**(-r/2), 'f3': rat[2], 'g': x**(-(1-r)/2)}
 FIfull = {L: ['f1'], T: ['fT'], B: ['fB'], R: ['f3']}
 import sys
+
 n0 = int(sys.argv[1]); e = np.exp(1j*float(sys.argv[2])); fl["eta"] = 1/e
 for n in (n0,):
     full = theory_index(4, [(one(B, 1), {'eta': -1}, r)] + rest, Kmat(1), {(B, 'eta'): -.5}, FIfull, fl, x, M=3, Ngrid=20, bg={'eta': -n})

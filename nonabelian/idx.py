@@ -17,7 +17,7 @@ def qpoch(a, q, tol=1e-17):
         out *= (1 - t); t *= q
     return out
 
-def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, vector=None, weyl=1, signfn=None, bg=None):
+def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, vector=None, weyl=1, signfn=None, bg=None, mshift=None):
     bg = bg or {}
     """n gauge U(1) factors (or Cartan of U(N) with vector=N). flav_vals: dict flavour -> complex fugacity value
     (log-free: we need log for fractional powers -> pass as (value, log) via exp). Returns the index (complex)."""
@@ -28,7 +28,7 @@ def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, vector=None, 
     lf = {f: np.log(v) for f, v in flav_vals.items()}
     total = 0j
     for m in product(range(-M, M+1), repeat=n):
-        m = np.array(m)
+        m = np.array(m) + (np.array(mshift) if mshift is not None else 0)
         # exponents (as Fractions) of each gauge fugacity and flavour, plus constant x-power
         ez = [Fr(0)]*n; ef = {f: Fr(0) for f in flav_vals}; ex = Fr(0); sign = 1
         # CS
