@@ -47,3 +47,9 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
    to 3e-5, mirror M=3): I_el(top flux 2) = x^{3(1-r)} w (y1 y2)^2 I_mir(eta-flux -2), C = 0.0030711, 0.0030719 at two
    points vs x^{3(1-r)} = 0.0030697 (agreement ~3e-4; the earlier r=0.3, x=0.05 value C ~ x^{2.1} = x^{3(1-r)} too).
    Item 8's diagnosis stands for M >= 7 (cancellation), but the 1% in item 7 was mostly flux truncation at r=0.3.
+10. Higgs-limit flux sectors (higgs_flux.py): first attempt INCONCLUSIVE, method flawed. Compared the exact 3d sector
+    with a 2d Gr(2,4) sector integrated on a finite sigma-window; ratio/ratio(0,0) is not sector-independent and does not
+    converge (scan over kappa sign, theta sign, (-1)^{sum m}). Cause identified: with 4 chirals of R=0.7 per Cartan the
+    2d integrand behaves like |sigma|^{4(R-1)+2} = |sigma|^{0.8} at large sigma (Vandermonde included), so the window
+    integral is meaningless; the 2d side must be evaluated by residues (6 Higgs vacua of Gr(2,4), vortex sums), as was
+    needed for CP^1. Next: residue-sum Gr(2,4) sectors; running coefficient is 8 (4 chirals x (1-q)^{-2 i sigma}), not 4.
