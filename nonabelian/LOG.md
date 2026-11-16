@@ -94,3 +94,14 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Parity: K_BB = 1/2 with B charges (L-B, R-B, B-T) -> 1/2*3 = 3/2 = 1/2 mod 1, consistent.
     Consequence: the eta background does NOT leave an FI on B (chiral zero point and mixed CS cancel); the would-be
     continuum sigma_L = sigma_B = sigma_R must be controlled by the CS levels of the reduced quiver. Next: its 2d limit.
+16. Power counting of the reduced quiver's 2d Coulomb integrand (cones.py -> cones.out), all subspaces V cut out by
+    vanishing chiral weights; convergence needs exponent sum_{charged}(R_i - 1) < -dim V.
+    CORRECTION to LOG 14: the full 4d integral is itself divergent for r > 0 (exponent 3r-4, margin 3r); I wrongly called
+    the generic direction integrable (the measured -3.4 at (1,2,3,4) matches 3r-4 = -3.1, and -3.1 > -4).
+    Pattern: every divergent subspace has margin r, 2r or 3r (cured by r < 0), EXCEPT four lines with exponent exactly -1
+    for any r: (1,0,1,1), (1,0,1,0), (0,0,1,1), (0,0,1,0). On each, the charged set is two diagonals + the vertical B-T,
+    i.e. a superpotential triangle: R-charges sum to 2, so (r-1)+(r-1)+(1-2r) = -1 identically. Log-divergent,
+    r-independent: lifted only by real FI / twisted masses, not by R-charge continuation.
+    Option (b) verdict so far: R-continuation to r < 0 regulates everything except the 4 triangle lines; those need a real
+    FI (|y| != 1). Option (a) remark: Hori-Vafa dualising each 2d chiral (6 Y's) with 4 sigma constraints leaves 2 LG
+    variables (3 with B), fewer than dim Gr(2,4) = 4 -- suggests the extra directions sit at sigma ~ 1/eps (bulk divergence).
