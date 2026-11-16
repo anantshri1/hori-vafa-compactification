@@ -85,3 +85,12 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     sigma_L = sigma_B = sigma_R (coords (a,b,a,a)); there only T-L, -T, T-R, B-T are charged, p = 3(r-1)+(1-2r) = -1.7 > -2.
     So the 2d mirror has a 2-dimensional continuum (non-compact Coulomb directions), lifted at most by oscillating FI/CS
     phases. Per agreement with Anant: STOPPED here to ask how to treat it.
+15. Anant (16 Nov): try all three treatments of the continuum, (a) LG with continuum variables, (b) regulate and take the
+    limit, (c) integrate out the massive B chiral first; evaluate each independently, also via the elliptic genus.
+    Option (c), 3d step DONE (optc.py, x=0.05, r=0.3, M=3): mirror with eta-flux -n equals, up to O(x^n),
+      (eta x^{1-r})^{n/2} x I_red,  I_red = quiver without the B chiral and without the B-eta mixed CS, K_BB: 1 -> 1/2,
+      extra FI fugacity x^{-(1-r)/2} on B (R-mixing). Check: |full/(red C)| = 1 - 3e-7, 1 - 8e-8 (n=6, 8); the phase was
+      exactly e^{-i n theta}, i.e. a sign typo in the eta power of C in the script (fixed, docstring was right).
+    Parity: K_BB = 1/2 with B charges (L-B, R-B, B-T) -> 1/2*3 = 3/2 = 1/2 mod 1, consistent.
+    Consequence: the eta background does NOT leave an FI on B (chiral zero point and mixed CS cancel); the would-be
+    continuum sigma_L = sigma_B = sigma_R must be controlled by the CS levels of the reduced quiver. Next: its 2d limit.
