@@ -105,3 +105,17 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Option (b) verdict so far: R-continuation to r < 0 regulates everything except the 4 triangle lines; those need a real
     FI (|y| != 1). Option (a) remark: Hori-Vafa dualising each 2d chiral (6 Y's) with 4 sigma constraints leaves 2 LG
     variables (3 with B), fewer than dim Gr(2,4) = 4 -- suggests the extra directions sit at sigma ~ 1/eps (bulk divergence).
+17. (check-in #9) Where the Gr(2,4) physics must sit on the mirror. Argument from LOG 15: at fixed gauge flux and fixed
+    sigma, the reduced quiver (option c) carries NO eta dependence beyond the overall (eta x^{1-r})^{n/2}, yet the Gr(2,4)
+    S^2 partition function depends non-trivially on its FI (kappa, theta) = image of eta. So the fixed-sigma, small-flux
+    Coulomb limit cannot reproduce Gr(2,4); the identity full = C * red (LOG 15) used mirror M=3 < n and so excluded
+    the sectors where it fails. The relevant region is m_B ~ -n, where nu_B = m_B + n is small: there the B chiral is
+    LIGHT and the three chirals touching B in triangles (L-B, R-B, B-T) carry |nu| ~ n, i.e. become HEAVY. Integrating
+    those out instead (option c'), the light theory is: node B with the eta-charged chiral; nodes L,T,R with T-L, -T, T-R;
+    plus induced CS/FI from three heavy chirals (k shifts of +-1/2 and n-dependent FIs on L, T, R). The superpotential
+    triangles are broken in this region, which is also where the r-independent log lines of LOG 16 came from.
+    This also explains the bulk divergence of LOG 16: the 2d integrand at fixed flux has its weight at |sigma| ~ 1/eps.
+    Next (concrete): evaluate the 3d mirror index restricted to sectors m_B = -n + m'_B, |m'| <= M, by shifting
+    backgrounds (B gets FI-type background, L,T,R get mixed-CS-induced ones), compare (i) its eta dependence and (ii) its
+    eps -> 0 limit with the Gr(2,4) sectors. 4 nodes x M~6-8 x Ng^4 is the first job where a GPU (Anant's HF credits) helps.
+    Elliptic genus: not started; only meaningful once the light theory is identified.
