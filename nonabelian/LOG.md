@@ -53,3 +53,10 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     2d integrand behaves like |sigma|^{4(R-1)+2} = |sigma|^{0.8} at large sigma (Vandermonde included), so the window
     integral is meaningless; the 2d side must be evaluated by residues (6 Higgs vacua of Gr(2,4), vortex sums), as was
     needed for CP^1. Next: residue-sum Gr(2,4) sectors; running coefficient is 8 (4 chirals x (1-q)^{-2 i sigma}), not 4.
+11. gr24_res.py: Gr(2,4) sectors by residues implemented (6 ordered vacua pairs, vortex sums). Comparison with the 3d sectors
+    still fails, and the reason is on the 3d side: higgs_flux.sector3d integrates sigma over a finite window [-7,7], but the
+    3d contour is the full circle, sigma in [-pi/eps, pi/eps]. With background flux n ~ 500 the full-circle grid needs
+    ~1e6 points with q-Pochhammers at q -> 1 (thousands of factors): too slow by brute force.
+    Plan: evaluate the 3d sectors by residues as well (poles of the Pochhammers inside |z|=1 = K-theoretic vortex sums at
+    the same 6 Higgs vacua) and compare residue by residue with the 2d vortex sums. This is cheap and is the clean form
+    of the Higgs-limit statement.
