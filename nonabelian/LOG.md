@@ -60,3 +60,13 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Plan: evaluate the 3d sectors by residues as well (poles of the Pochhammers inside |z|=1 = K-theoretic vortex sums at
     the same 6 Higgs vacua) and compare residue by residue with the 2d vortex sums. This is cheap and is the clean form
     of the Higgs-limit statement.
+12. Higgs-limit flux sectors by residues (res3d.py, res3d_scan.py). 3d sectors of U(2)_{(0,-2)}[4,0] with background top.
+    flux n ~ 1/eps evaluated as K-theoretic vortex sums (poles sigma_a = -mu_{j_a} - i(R/2+|m_a|/2+k_a), closed below),
+    Gr(2,4) sectors at the same poles; residues by 4-direction averaging, vectorised (8 s per eps).
+    RESULT: residue by residue, for each distinct-flavour vacuum (j1,j2), ratio_3d/2d(m) / ratio(0,0) -> (-1)^{m1+m2}
+    with O(eps) corrections. E.g. m=(1,0), vacuum (2,3): -0.534, -0.734, -0.857, -0.926 at eps = 0.2, 0.1, 0.05, 0.025;
+    m=(2,0): 0.227, 0.479, 0.694, 0.834. Sign = theta -> theta + pi (the usual shift). Sector totals converge more slowly.
+    Caveat: poles with j1 = j2 and k1 != k2 are NOT zero sector by sector (Vandermonde does not vanish there) and are large
+    (|same-j sum| >> |total|), so they cancel against something; 3d and 2d same-j pieces do not yet agree pole by pole.
+    Open: show the same-j pieces cancel in the sum over sectors (expected: vortex-sum form has distinct j only).
+    Coulomb-limit ladder test: NOT started this check-in.
