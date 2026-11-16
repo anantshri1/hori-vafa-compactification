@@ -133,3 +133,14 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     fluxes truncated at |m| <= 1; their couplings to m_B (mixed CS -1/2, +1/2) probably require shifts ~ m_B/2 too.
     Next: (1) widen L,T,R windows co-moving with m_B (shift m_L, m_R ~ m_B/2?); (2) n = 8, 12, 16 to check the profile
     collapses as a function of m_B/n; (3) fit the slice phase per step against eta/theta and y. GPU worthwhile for (1)-(2).
+19. GPU scan (HF Jobs T4, log hfjob_scan.log; JAX engine idx_jax.py agrees with idx.py to 5e-16 and the GPU reproduces
+    the CPU slices digit for digit). Mirror, eta-flux -n, x = 0.3, slices along m_B:
+    - ROBUST: support is m_B in [-n, 0] for n = 8, 12, 16, sharp edges (drop x10 at -n-1, x100 at -n-2).
+    - ROBUST: slices near m_B ~ 0 (|m_B| <= 3) converged in the L,T,R window (identical for M = 3, 4, c = 0, 0.5).
+    - NOT CONVERGED: the interior. Totals n=8: c=0 M=3 63-17i, M=4 77-16i; c=0.5 M=3 -1-78i, M=4 -16-12i.
+      The L,T,R fluxes spread with |m_B|. A CPU diagnostic (n=4, m_B=-2) puts m_L, m_R near m_B and m_T near 0,
+      i.e. co-moving coefficients ~ (1, 0, 1), not (0.5, 0.5, 0.5) as I guessed.
+    - Profile at fixed x is a function of m_B (n only sets the edge), not of m_B/n.
+    DESIGN FLAW of this batch (mine): the m_B/n collapse is only meaningful in the joint limit x = e^{-eps/2} -> 1 with
+    n ~ 1/eps; at fixed x = 0.3 (eps ~ 2.4) it tests nothing about 2d. Next batch must scale x with n.
+    Next GPU job (run_diag.sh): full (m_L,m_T,m_R) box at fixed m_B to locate the weight, at x = 0.3 and x = 0.78.
