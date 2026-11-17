@@ -179,3 +179,17 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Gelfand-Tsetlin pattern (bottom entry bounds the next row from below; the top row is fixed). Not yet quantitative:
     edges are smeared over ~5 units at x = 0.78, and the upper L,R edge is not contained.
     Slice totals for m_B = -6, -8 are unreliable (box truncation).
+24. Both L,R edges contained (hfjob_scan3.log; n=8, x=0.78, Ng=20, L,R in [-14,12], T in [-5,8]; 78 min/slice, ~$1.6).
+    Edges of the m_L (= m_R) marginal at 1% of peak:
+                lower      upper     | T peak, T upper(1%)
+      m_B =  0: -5.3       +8.5      | +2, ~+6
+      m_B = -4: -9.2       +8.3      | +2, ~+6
+      m_B = -8: -12.7      +8.0      | +2, ~+6
+    Lower edge slope d(edge)/d(m_B) = 0.93; upper edge independent of m_B (drift 0.5 over 8 units); T window fixed.
+    => at x = 0.78: m_B <= m_L, m_R <= const (~ T scale), smeared by ~5 units on each side: the interlacing
+    inequalities of a Gelfand-Tsetlin pattern, with B the bottom entry and the T/flavour data as the fixed top row.
+    Slice totals with contained boxes: m_B=0 -0.939+0.169i, -4 -6.18+0.58i (was -6.56+0.55i in [-9,6]),
+    -8 33.5-3.1i (was 37.0+3.8i truncated).
+    Open: (i) do the smeared edges sharpen as x -> 1 with n ~ 1/eps (must, if this is a 2d polytope)? (ii) is the
+    upper bound of L,R really set by T (vary the T-related fugacity / R-mixing), (iii) match to the Gr(2,4) GT polytope
+    inequalities and to the BCFKvS ladder potential.
