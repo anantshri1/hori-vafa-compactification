@@ -1,0 +1,38 @@
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.0.1 -> 26.3
+[notice] To update, run: pip install --upgrade pip
++ python diag.py 8 0.78 -4 -8 3 16
+DIAG n=8 x=0.78 m_B=-4 box[-8,3]^3: slice/C=-7.353987e+00-9.698549e-01j
+  marginal |.| in m_L: -8:9.48e-01 -7:4.67e+00 -6:1.01e+01 -5:6.03e+00 -4:5.88e+00 -3:7.38e+00 -2:1.11e+01 -1:1.16e+01 0:8.44e+00 1:6.28e+00 2:5.71e+00 3:4.43e+00
+  marginal |.| in m_T: -8:6.92e-02 -7:1.62e-01 -6:1.99e-01 -5:5.95e-01 -4:1.63e+00 -3:2.94e+00 -2:4.16e+00 -1:4.74e+00 0:1.47e+01 1:1.20e+01 2:2.38e+01 3:1.75e+01
+  marginal |.| in m_R: -8:9.48e-01 -7:4.67e+00 -6:1.01e+01 -5:6.03e+00 -4:5.88e+00 -3:7.38e+00 -2:1.11e+01 -1:1.16e+01 0:8.44e+00 1:6.28e+00 2:5.71e+00 3:4.43e+00
+  top sector (-1, 2, -4, -1): -5.407e-01-7.402e-01j
+  top sector (-1, 2, -4, 0): -2.671e-01-6.240e-01j
+  top sector (-2, 2, -4, -1): -2.959e-03-6.788e-01j
+  top sector (0, 2, -4, -1): -6.694e-01-1.125e-01j
+  top sector (-1, 2, -4, -2): -5.728e-01-3.643e-01j
+  top sector (-2, 2, -4, 0): 9.238e-02-5.041e-01j
+  top sector (0, 2, -4, 0): -4.811e-01-1.767e-01j
+  top sector (-2, 2, -4, -2): -2.084e-01-4.682e-01j
+  top sector (0, 2, -4, -2): -4.968e-01+1.258e-01j
+  top sector (-6, 2, -4, -1): -1.191e-01+4.828e-01j
+  top sector (-1, 2, -4, -6): -4.967e-01+2.277e-02j
+  top sector (-2, 0, -4, -2): -1.707e-01-4.554e-01j
++ python diag.py 8 0.78 -7 -10 2 16
+DIAG n=8 x=0.78 m_B=-7 box[-10,2]^3: slice/C=-4.406718e+00+4.540351e+01j
+  marginal |.| in m_L: -10:8.27e+00 -9:1.79e+01 -8:9.62e+00 -7:6.85e+00 -6:1.27e+01 -5:1.77e+01 -4:2.71e+01 -3:3.01e+01 -2:2.73e+01 -1:2.04e+01 0:1.06e+01 1:8.99e+00 2:6.73e+00
+  marginal |.| in m_T: -10:8.00e-02 -9:1.06e-01 -8:3.69e-01 -7:1.01e+00 -6:1.98e+00 -5:3.14e+00 -4:4.65e+00 -3:7.22e+00 -2:1.02e+01 -1:1.44e+01 0:3.75e+01 1:3.71e+01 2:8.66e+01
+  marginal |.| in m_R: -10:8.27e+00 -9:1.79e+01 -8:9.62e+00 -7:6.85e+00 -6:1.27e+01 -5:1.77e+01 -4:2.71e+01 -3:3.01e+01 -2:2.73e+01 -1:2.04e+01 0:1.06e+01 1:8.99e+00 2:6.73e+00
+  top sector (-2, 2, -7, -2): 1.221e+00+2.444e+00j
+  top sector (-2, 2, -7, -3): 1.888e+00+1.975e+00j
+  top sector (-3, 2, -7, -3): 1.723e-01+2.727e+00j
+  top sector (-3, 2, -7, -2): -6.412e-01+2.656e+00j
+  top sector (-3, 2, -7, -1): -1.055e+00+1.822e+00j
+  top sector (-2, 2, -7, -1): 3.668e-01+2.073e+00j
+  top sector (-4, 2, -7, -3): -1.231e+00+1.707e+00j
+  top sector (-4, 2, -7, -2): -1.681e+00+1.267e+00j
+  top sector (-1, 2, -7, -3): 2.095e+00+2.010e-01j
+  top sector (-1, 2, -7, -2): 1.942e+00+8.112e-01j
+  top sector (-2, 2, -7, -4): 1.852e+00+1.001e+00j
+  top sector (-3, 2, -7, -4): 7.712e-01+1.958e+00j

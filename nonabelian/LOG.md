@@ -151,3 +151,11 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Pattern: m_B <= m_L, m_R <= 0 (approximately), m_T ~ 0: an INTERLACING pattern of flux intervals, nested in the
     interval m_B in [-n, 0]. This is Gelfand-Tsetlin-like (column 1: B; column 2: L, R; top: T / flavour), i.e. the
     shape of a ladder diagram -- suggestive of the Givental/BCFKvS ladder for Gr(2,4). Speculative; check at x -> 1.
+21. Diagnostic at x = 0.78 (hfjob_diag2.log; n=8, Ng=16): the boxes did NOT contain the weight. m_T marginal peaks at the
+    upper box edge (m_B=-4: 23.8 at +2 of box [-8,3]; m_B=-7: 86.6 at +2 of [-10,2]); L, R marginals barely decay at
+    either edge (4.4 at +3, 8.3 at -10). L, R bulk still inside [m_B, 0] (peaks -1..-2 and -3) but with long tails.
+    Interlacing (LOG 20) is therefore NOT confirmed at x=0.78: the spread grows as x -> 1 in every direction.
+    Reading: all four fluxes spread ~ 1/eps, so the 2d continuum is 4-dimensional (u_a = eps m_a, a = L,T,B,R),
+    consistent with LOG 16 (whole 4d Coulomb integral divergent) -- and 4 = dim_C Gr(2,4), which would resolve the
+    LOG 16 count (2 LG variables from Hori-Vafa with sigma constraints, vs 4 needed). Hypothesis, not shown.
+    Next job: asymmetric box L,R in [-14,6], T in [-4,14] at m_B=-4 (run_diag.sh).
