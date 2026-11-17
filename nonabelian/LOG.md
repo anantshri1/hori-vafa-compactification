@@ -211,3 +211,22 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     structure (lower edge tracks m_B, upper edge fixed, T window fixed) survives at n=12. Two points are not a trend;
     further GPU spending is not the best next step. Next: derive the large-flux asymptotics analytically (dilogarithm /
     Bessel saddle in u for each chiral, as for the abelian pair) and predict the edge positions, then compare.
+26. Analytic step 1-2 (amoeba.py, amoeba_par.py; am_*.log). Leading large-flux asymptotics: at u = eps|nu| fixed each chiral
+    is, on the real torus, the pure phase exp(2i Im Li2(s a e^{i theta})/eps), a = x^{|nu|+1}; CS/FI/zero-point monomials are
+    phases e^{i ez.phi}, ez ~ 1/eps. A sector is O(1) iff the phase is stationary somewhere on T^4:
+        sum_i Q_ia [-2 log|1 - s_i a_i e^{i theta_i}|] + eps ez_a = 0   (4 real equations, 4 angles),
+    otherwise exponentially small. Prediction: flux support = solvability region (amoeba-type: |1 - a e^{i theta}| ranges
+    over [1-a, 1+a]). Compared with the measured m_L marginals (10%-of-peak edges, hfjob_sharp.log):
+                         predicted (sharp)   measured (10%)
+      n=8,  x=.78, m_B=0:    [-3, 4]         [-4.1, 6.9]
+      n=8,  x=.78, m_B=-8:   [-10, 4]        [-11.7, 6.1]
+      n=12, x=.85, m_B=0:    [-4, 8]         [-5.9, 9.6]
+      n=12, x=.85, m_B=-12:  [-15, 7]        [-17.0, 8.7]
+    - Upper edge predicted m_B-independent (4, 4; 8, 7): matches. Lower edge slope predicted 0.88 (n=8), 0.92 (n=12);
+      measured 0.95, 0.93. Measured edges always 1-3 units OUTSIDE the predicted ones, as expected for stationary-phase
+      (Airy-type) tails at a 10% threshold. Not a fit: no free parameters.
+    - Consequence: the finite edge offsets in u (LOG 25) are the boundary of this stationarity region, a genuine 2d object
+      (amoeba of the effective mirror's 1 - a_i zeta_i factors, i.e. |e^{-Y_i}| = e^{-u_i/2} in Hori-Vafa variables), not
+      a smeared GT inequality u_L >= u_B. Interlacing-like shape (lower edge tracks B, upper fixed) comes out of it.
+    Next (cheap, CPU only): (i) the region at fixed u as eps -> 0 (does it converge?); (ii) write the stationarity equations
+    as Re of the critical equations of W = sum Li2 + CS + FI, take the 2d limit, compare with the BCFKvS ladder potential.
