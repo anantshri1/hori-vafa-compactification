@@ -168,3 +168,14 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Picture so far: B in [-n,0], L,R bounded below by -n with a decaying upper tail, T in a fixed window around +2.
     Weight occupies a bounded region in all four flux directions whose size grows with n: a polytope-like support.
     Whether its shape is the Gelfand-Tsetlin polytope of Gr(2,4) is the question; not established.
+23. Aliasing-safe polytope scan (hfjob_scan2.log; n=8, x=0.78, Ng=20, L,R in [-9,6], T in [-4,7]; 2.2 sectors/s on T4,
+    ~23.5 min per slice, ~$0.80 total). m_B=-4 vs the Ng=16 run: slice -6.56+0.55i vs -6.52+1.28i (aliasing ~10%).
+    Lower edge of the m_L (= m_R) marginal, taken where it drops to 1% of its peak:
+      m_B =  0: ~ -5.5 | m_B = -2: ~ -7 | m_B = -4: ~ -9 | m_B = -6, -8: below the box (truncated).
+    -> the L,R lower edge TRACKS m_B with slope ~ 0.9-1, with a constant offset ~ -5 (smearing at x=0.78, eps ~ 0.5).
+    Upper side of L,R: slow tail beyond +6 in every slice, roughly m_B-independent (truncated by the box).
+    m_T: same window [-4,7], peak at +2, in every slice: independent of m_B.
+    Pattern: m_B (in [-n,0]) <= m_L, m_R <= (fixed upper scale), m_T fixed. This is qualitatively the interlacing of a
+    Gelfand-Tsetlin pattern (bottom entry bounds the next row from below; the top row is fixed). Not yet quantitative:
+    edges are smeared over ~5 units at x = 0.78, and the upper L,R edge is not contained.
+    Slice totals for m_B = -6, -8 are unreliable (box truncation).
