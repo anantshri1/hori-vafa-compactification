@@ -159,3 +159,12 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     consistent with LOG 16 (whole 4d Coulomb integral divergent) -- and 4 = dim_C Gr(2,4), which would resolve the
     LOG 16 count (2 LG variables from Hori-Vafa with sigma constraints, vs 4 needed). Hypothesis, not shown.
     Next job: asymmetric box L,R in [-14,6], T in [-4,14] at m_B=-4 (run_diag.sh).
+22. Wide asymmetric box at x=0.78 (hfjob_diag3.log; n=8, m_B=-4, L,R in [-14,6], T in [-4,14], Ng=16):
+    - L, R: sharp LOWER edge near -n (1.1 at -8, 0.12 at -9, 7e-3 at -10, 1.6e-8 at -14); bulk on [-7, 0];
+      slow UPPER tail (4.7 at +6). Upper tail is real: single sectors (4,2,-4,-1), (6,2,-4,-1) identical at Ng=16,20,24.
+    - T: bump on [-4, 6], peak at +2..+3, 1e-5 by +9; the RISE at m_T >= 11 (16.6 at +14) is GRID ALIASING:
+      sector (-1,14,-4,-1) = 5.8e-2 (Ng=16), 2.3e-9 (Ng=20), 5.1e-15 (Ng=24). So the Ng=16 slice totals at x=0.78 are
+      contaminated; any production run needs Ng >= 20-24 (rule: Ng > 2 max|gauge power| in the box).
+    Picture so far: B in [-n,0], L,R bounded below by -n with a decaying upper tail, T in a fixed window around +2.
+    Weight occupies a bounded region in all four flux directions whose size grows with n: a polytope-like support.
+    Whether its shape is the Gelfand-Tsetlin polytope of Gr(2,4) is the question; not established.
