@@ -1,0 +1,4 @@
+n=8 x=0.78 eps=0.497 m_B=0: 1% edges lo -5.17 (offset from m_B -5.17) hi 8.23; edge widths (10%->0.01%) lo 2.52 hi 3.19; width/n lo 0.315 hi 0.399; eps*width lo 1.25 hi 1.58
+n=8 x=0.78 eps=0.497 m_B=-8: 1% edges lo -12.68 (offset from m_B -4.68) hi 7.82; edge widths (10%->0.01%) lo 2.73 hi 3.59; width/n lo 0.342 hi 0.449; eps*width lo 1.36 hi 1.79
+n=12 x=0.85 eps=0.325 m_B=0: 1% edges lo -7.06 (offset from m_B -7.06) hi 10.91; edge widths (10%->0.01%) lo 3.06 hi 3.13; width/n lo 0.255 hi 0.261; eps*width lo 1.00 hi 1.02
+n=12 x=0.85 eps=0.325 m_B=-12: 1% edges lo -18.30 (offset from m_B -6.30) hi 10.14; edge widths (10%->0.01%) lo 6.41 hi 6.32; width/n lo 0.534 hi 0.527; eps*width lo 2.08 hi 2.05

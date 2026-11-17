@@ -193,3 +193,21 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Open: (i) do the smeared edges sharpen as x -> 1 with n ~ 1/eps (must, if this is a 2d polytope)? (ii) is the
     upper bound of L,R really set by T (vary the T-related fugacity / R-mixing), (iii) match to the Gr(2,4) GT polytope
     inequalities and to the BCFKvS ladder potential.
+25. Edge-sharpening test (hfjob_sharp.log, sharp_edges.txt; 2d (m_L, m_R) grids at m_T in {0,2,4}; ~4.3 h T4, ~$1.8).
+    Aliasing check: corner sectors at Ng and Ng+8 all < 1e-9 of the bulk -> grids fine.
+    m_L marginal, edges at 1% of peak, edge width = distance between the 10% and 0.01% levels:
+      (n,x,eps)        m_B   lo edge (offset)   hi edge   width lo/hi   width/n lo/hi
+      (8, .78, .497)    0    -5.17 (-5.17)      +8.23     2.5 / 3.2     0.32 / 0.40
+      (8, .78, .497)   -8   -12.68 (-4.68)      +7.82     2.7 / 3.6     0.34 / 0.45
+      (12,.85, .325)    0    -7.06 (-7.06)     +10.91     3.1 / 3.1     0.26 / 0.26
+      (12,.85, .325)  -12   -18.30 (-6.30)     +10.14     6.4 / 6.3     0.53 / 0.53
+    - At m_B = 0 the edges sharpen relative to n (0.32 -> 0.26 lo, 0.40 -> 0.26 hi).
+    - At m_B = -n they do NOT: width/n grows 0.34 -> 0.53. That slice is strongly oscillatory at n=12 (dips, e.g. 55 at
+      m_L=-14 between 293 and 283), which inflates the 10% crossing; but the growth is not obviously an artefact.
+    - Edge OFFSETS in u = eps m: lo 2.57 -> 2.29 (m_B=0), 2.33 -> 2.05 (m_B=-n); hi 4.09 -> 3.55. A smearing that
+      vanishes in 2d would shrink these by eps ratio 0.65; observed ~0.87-0.89. So most of the offset is a genuine finite
+      feature in u, i.e. in 2d the L,R support would be ~ [u_B - 2.3, ~3.5], not the sharp GT inequality u_B <= u_L.
+    VERDICT: INCONCLUSIVE, leaning against a literal Gelfand-Tsetlin polytope with edges at u_L = u_B. The qualitative
+    structure (lower edge tracks m_B, upper edge fixed, T window fixed) survives at n=12. Two points are not a trend;
+    further GPU spending is not the best next step. Next: derive the large-flux asymptotics analytically (dilogarithm /
+    Bessel saddle in u for each chiral, as for the abelian pair) and predict the edge positions, then compare.
