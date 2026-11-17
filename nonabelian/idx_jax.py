@@ -7,7 +7,7 @@ from itertools import product
 import jax, jax.numpy as jnp
 jax.config.update("jax_enable_x64", True)
 
-def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, signfn=None, bg=None, mshift=None, chunk=256, sectors=None):
+def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, signfn=None, bg=None, mshift=None, chunk=256, sectors=None, per_sector=False):
     bg = bg or {}
     q = x*x
     Kq = int(np.ceil(17*np.log(10)/(-np.log(q)))) + 2
@@ -34,11 +34,13 @@ def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, signfn=None, 
 
     rng = sectors if sectors is not None else product(range(-M, M+1), repeat=n)
     batch_nu, batch_ez, batch_c = [], [], []
-    total = 0j
+    total = 0j; out = []
     def flush():
         nonlocal total
         if batch_nu:
-            total += complex(jnp.sum(kernel(jnp.array(batch_nu, float), jnp.array(batch_ez, float), jnp.array(batch_c))))
+            v = kernel(jnp.array(batch_nu, float), jnp.array(batch_ez, float), jnp.array(batch_c))
+            total += complex(jnp.sum(v))
+            if per_sector: out.extend(np.asarray(v).tolist())
             batch_nu.clear(); batch_ez.clear(); batch_c.clear()
     for m in rng:
         m = np.array(m) + (np.array(mshift) if mshift is not None else 0)
@@ -62,4 +64,4 @@ def theory_index(n, chirals, K, Kf, FI, flav_vals, x, M, Ngrid=24, signfn=None, 
         batch_nu.append(nus); batch_ez.append([float(e) for e in ez]); batch_c.append(logc)
         if len(batch_nu) >= chunk: flush()
     flush()
-    return total
+    return out if per_sector else total

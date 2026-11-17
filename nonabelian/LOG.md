@@ -144,3 +144,10 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     DESIGN FLAW of this batch (mine): the m_B/n collapse is only meaningful in the joint limit x = e^{-eps/2} -> 1 with
     n ~ 1/eps; at fixed x = 0.3 (eps ~ 2.4) it tests nothing about 2d. Next batch must scale x with n.
     Next GPU job (run_diag.sh): full (m_L,m_T,m_R) box at fixed m_B to locate the weight, at x = 0.3 and x = 0.78.
+20. Flux-window diagnostic (HF job, 16 Nov; second run hit the 60m timeout: per-sector jit calls were unbatched, fixed
+    with idx_jax per_sector=True). n=8, x=0.3, m_B=-4, full box [-9,5]^3, slice/C = 29.1-16.9i:
+    marginal in m_L (= m_R exactly, L<->R symmetry): spread over [-5, 0], peak at -3; falls 1e-2 at -6 and at +2.
+    marginal in m_T: peaked at 0, spread over [-3, +1].
+    Pattern: m_B <= m_L, m_R <= 0 (approximately), m_T ~ 0: an INTERLACING pattern of flux intervals, nested in the
+    interval m_B in [-n, 0]. This is Gelfand-Tsetlin-like (column 1: B; column 2: L, R; top: T / flavour), i.e. the
+    shape of a ladder diagram -- suggestive of the Givental/BCFKvS ladder for Gr(2,4). Speculative; check at x -> 1.
