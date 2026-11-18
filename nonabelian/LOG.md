@@ -259,3 +259,16 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     ARW say decouple as massive; (b) the vertical term is absent/suppressed in the Bessel regime (it has R = 2-2r and sits
     in the superpotential triangles); (c) its coefficient is fixed by the reduction to a special value. The coefficient c
     and which chirals are simultaneously in the Bessel regime are not yet derived.
+29. Anant (18 Nov): bets on reading (a) (CS level -2 leaves 2 extra vacua), cannot rule out (b),(c); do (a) first.
+    While setting up (a), a derivation that bears on (b) (algebra, not yet checked numerically):
+    each chiral's ratio of q-Pochhammers contains BOTH X_+ = x^{nu} zeta = w^{Q} and X_- = x^{nu}/zeta = x^{2nu} w^{-Q};
+    in the Bessel regime x^{|nu|} ~ eps only the one with the small x-power survives at O(1) after the 1/eps:
+    w^{Q} for nu > 0, w^{-Q} for nu < 0, with coefficient ~ x^{|nu|}/eps.
+    In a superpotential triangle (e.g. L-B, T-L, B-T) the three fluxes sum to zero, so one of them has the opposite sign
+    and |nu| = sum of the other two: x^{|nu|} ~ eps^2, its monomial is O(eps) and DROPS. Which one drops depends on the
+    flux region. Region "vertical drops in both triangles" gives exactly the 6-term ladder W_tor (LOG 28). Other regions
+    give other Laurent charts (the vertical B-T term present, one diagonal absent). Conjecture: these are cluster-type charts
+    of one mirror, and the union is the compactified (Marsh-Rietsch) mirror with chi = 6 vacua; the CS-level-2 topological
+    vacua then sit outside the Bessel regime (decoupled), as in ARW. This merges (a) and (b).
+    Next: enumerate the sign regions/charts, check they glue by cluster mutations, count vacua per chart and of the union,
+    and compute the electric 3d Bethe-vacuum count to see where the +2 lives.
