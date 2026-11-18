@@ -325,3 +325,19 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     NOT yet done: derive the Bessel-regime LG directly from exact 3d sectors numerically (the monomial rule and triangle rule
     are derived analytically, checked only through this vacuum structure); coefficients/q from the map; mirror 3d Bethe
     count by exact elimination; the -/+ chamber with 20 vacua.
+33. Coefficient step (1): R-MIXING CANCELS EXACTLY (rmix.py). In the Bessel regime the only R-dependent pieces that
+    survive at finite u = eps m are linear in u: chiral zero points x^{(1-R_i)|nu_i|/2} (sign_i (R_i-1) Q_ia /4 per node)
+    and the FI R-mixing x^{-+r/2} on T,B (+-r/4). Analytic sum in the ladder sign region (vertical B-T has nu < 0):
+       L: 0,  R: 0,  T: -r/4 (chirals) + r/4 (FI) = 0,  B: +r/4 (chirals) - r/4 (FI) = 0.
+    Numerically (exact prefactor, x = 0.9, deep in the ladder region): d log|prefactor| / d m_a = 0 to 1e-7 on all four
+    nodes for r = 0.2, 0.3, 0.45. So mu_B = mu_T holds EXACTLY: no imaginary twisted mass survives on any node.
+    It needs BOTH 3d quirks:
+      - vertical R = 2-2r (fixed by the superpotential triangles): with R_vert = 1-r the residue is (0,-7/3,+7/3,0) eps r/4;
+      - FI R-mixing x^{+-r/2} on T,B (fixed by the monopole superpotential, R[V] = 2): without it the residue is
+        (0,-1,+1,0) eps r/4, i.e. exactly along the monopole's charge vector (T-, B+).
+    Reading: the monopole superpotential's 2d imprint is precisely the absence of a twisted mass along w_B/w_T; the
+    vertical chiral's monomial is O(eps) (triangle rule) but its ZERO-POINT is what the monopole R-mixing cancels against.
+    (2) Monopole as a twisted-chiral exponential: in the index it enters only through the fugacity constraint; no
+    O(1) monomial w_B/w_T appears in the ladder region (vertical monomial O(eps); a surviving one would give 10 vacua).
+    Whether a 2d e^{-Y}-type term from the monopole sits at higher order is NOT derived.
+    (3) q and monomial coefficients from the map: next.
