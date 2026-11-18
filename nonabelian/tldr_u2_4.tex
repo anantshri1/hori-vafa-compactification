@@ -1,0 +1,44 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,geometry}
+\geometry{margin=2.2cm}
+\newcommand{\Chir}{\mathrm{Chir}}
+\begin{document}
+\begin{center}{\large\bf TL;DR: $U(2)_{(0,-2)}[4,0]$ on a small circle} \\[2pt] {\small branch \texttt{nonabelian-u2}, LOG 1--32, 18 Nov 2026}\end{center}
+
+\paragraph{Start (3d, exact).}
+Electric theory $U(2)$ with $K=-J$ and four fundamentals $(R=1-r)$; planar abelian mirror with nodes $L,T,B,R$, chirals
+$B,\;L\!-\!B,\;T\!-\!L,\;-T,\;R\!-\!B,\;T\!-\!R$ $(R=r)$ and the vertical $B\!-\!T$ $(R=2-2r)$, $W_{\rm planar}=$ triangles, CS self-levels $+1$ and mixed levels $\mp\tfrac12$.
+\begin{equation}
+\frac12\sum_{m\in\mathbb Z^2}\oint\!\frac{d^2z}{(2\pi i)^2 z^2}\,
+\Delta_W(z,m)\,z^{-Jm}\,w^{-\sum m}\prod_{a,j}\Chir\!\big(z_a y_j,m_a,1-r\big)
+\;=\;
+\sum_{m\in\mathbb Z^4}\oint\!\frac{d^4z}{(2\pi i)^4 z^4}\,z^{Km}\,\omega(y,\eta)^{-m}\prod_{i=1}^{7}\Chir\!\big(z^{Q_i}f_i,\,Q_i\!\cdot\! m,\,R_i\big)
+\label{3d}\end{equation}
+Verified to $\sim10^{-5}$, also with background flux ($\eta$-flux $-n$ on the mirror $\leftrightarrow$ topological flux $n$ on the electric side). FI map: column ratios $y_{I+1}/y_I$, with R-mixing $x^{\pm r/2}$ on $T,B$.
+
+\paragraph{End A: Higgs limit of the electric side} ($y_j=q^{-i\mu_j}$, $n=\kappa$-scaled, $\epsilon\to0$). It reduces to the $Gr(2,4)$ GLSM on $S^2$, flux sector by flux sector (per-vacuum ratios $\to(-1)^{\sum m}$; same-flavour poles cancel in the flux sum):
+\begin{equation}
+Z_{Gr(2,4)}=\frac12\sum_{m\in\mathbb Z^2}\int\!\frac{d^2\sigma}{(2\pi)^2}\,
+\Big(\sigma_{12}^2+\tfrac{m_{12}^2}{4}\Big)\,e^{-4\pi i\xi\sum\sigma_a-i\theta\sum m_a}
+\prod_{a,j}\frac{\Gamma\!\big(\tfrac{R}{2}-i(\sigma_a+\mu_j)-\tfrac{m_a}{2}\big)}{\Gamma\!\big(1-\tfrac{R}{2}+i(\sigma_a+\mu_j)-\tfrac{m_a}{2}\big)} .
+\end{equation}
+
+\paragraph{End B: Coulomb (Bessel) limit of the mirror} ($x^{|Q_i\cdot m|}\sim\epsilon$, i.e.\ $n\sim\epsilon^{-1}\ln\epsilon^{-1}$). The flux and the angle combine into $w_a=x^{m_a}z_a$. Each light chiral gives one monomial $w^{\pm Q_i}$. In each superpotential triangle the fluxes sum to zero, so one chiral is $O(\epsilon)$ and drops; in the ladder chart this is the vertical $B\!-\!T$. With $X=w_B,\;Y=w_L,\;Z=w_R,\;W=w_T$:
+\begin{equation}
+\mathcal W=X+\frac{Y}{X}+\frac{Z}{X}+\frac{W}{Y}+\frac{W}{Z}+\frac{q}{W}
+\;+\;\mu_{BT}\,(\log X+\log W)+\mu_L\log Y+\mu_R\log Z ,
+\end{equation}
+i.e.\ the BCFKvS/Givental ladder of $Gr(2,4)$. The twisted masses enter as column FIs ($\mu_B=\mu_T$ forced by the column structure), and the expected $S^2$ form is
+\begin{equation}
+Z_{B}\;\stackrel{?}{=}\;\int\prod_{v\in\{X,Y,Z,W\}}\frac{d^2\log v}{(2\pi)^2}\;e^{\mathcal W-\overline{\mathcal W}} .
+\end{equation}
+
+\paragraph{What is verified vs not.}
+\begin{itemize}\itemsep0pt
+\item[\checkmark] (\ref{3d}) exactly; End A sector by sector at $O(\epsilon)$; the electric Bethe count is $6$ in the Higgs chamber.
+\item[\checkmark] Vacuum by vacuum (3 random mass points, $10^{-13}$): the 6 critical points of $\mathcal W$ have $q\,\partial_q\mathcal W=-(r_i+r_j)$, where $r$ are the roots of $\prod_j(\sigma-m_j)=q$, $m$ are cumulative column FIs in the order $(L,\,B{=}T,\,R)$. These are exactly the $Gr(2,4)$ equivariant QC vacua.
+\item[\checkmark] Counts: ladder with $\mu=0$: 4 (EHX); with generic $\mu$: 6; with the vertical term added: 10 (so it must drop).
+\item[$\times$] Not yet done: the coefficients and $q$ from the reduction map; End B derived numerically from exact 3d sectors; the $S^2$ integral identity $Z_A=Z_B$ itself; the elliptic genus.
+\end{itemize}
+At fixed $n\epsilon$ (an intermediate ``3d on a circle'' regime) the flux support is the stationary-phase region of $\sum_i\pm\mathrm{Li}_2(w^{Q_i})+\tfrac12K\log w\log w+\dots$; it matches the GPU scans with no free parameters, but it is not the 2d limit.
+\end{document}
