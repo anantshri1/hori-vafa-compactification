@@ -356,3 +356,10 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Electric side (LOG 9-12): kappa_el = -eps n - 8 ln(1-q). So ln q_LG = kappa_el/2: the one-loop running coefficients
     4 (mirror) and 8 (electric) agree up to the same factor 2 as eps n vs eps n/2, i.e. the sigma normalisation.
     Monopole exponential at subleading order: no trace found; not further investigated.
+35. Potential from exact sectors (sector_pt.py). Exact 3d mirror sectors deep in the ladder region, fluxes
+    m = (-2,-1,-3,-2) nu* + delta (delta random in [-3,3]^4), eta-flux 4 nu*, x^{nu*} ~ eps, random gauge angles (8 points):
+    exact product of the 7 chiral q-Pochhammer ratios vs exp[sum over the 6 ladder chirals (X+ - X-)/(1-q)]:
+       max |exact/LG - 1| = 0.71, 0.35, 0.20 at eps = 0.2, 0.1, 0.05   (O(eps))
+       vertical B-T chiral alone: max |value - 1| = 0.48, 0.22, 0.10  (O(eps): triangle rule confirmed on exact numbers)
+    So pointwise, the exact 3d integrand in this region is e^{W - Wbar} of the ladder at O(eps), the vertical chiral
+    contributing only its (exact, R-cancelling) zero point.
