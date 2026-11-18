@@ -246,3 +246,16 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Next: (a) derive this LG explicitly (variables, constraints, CS-induced terms) and count independent variables;
     (b) fetch the exact BCFKvS / Marsh-Rietsch Gr(2,4) ladder potential and compare term by term; (c) if useful, one GPU
     slice in the Bessel regime (n ~ ln(1/eps)/eps) to confirm the weight moves there.
+28. Analytic step 4 (ladder_cmp.py). Bessel-regime LG of the planar mirror: variables = the 4 gauge variables w_a (as for
+    the abelian pair, where one node gave W = Y + Lambda/Y), one monomial w^{Q_i} per chiral:
+      B: w_B | L-B: w_L/w_B | R-B: w_R/w_B | T-L: w_T/w_L | T-R: w_T/w_R | -T: 1/w_T | vertical B-T: w_B/w_T
+    Gr(2,4) ladder (EHX hep-th/9605225 App. B; BCFKvS): W = X + Y/X + Z/X + W/Y + W/Z + q/W, 4 variables, 4 critical
+    points (EHX: Y = Z = X^2/2, W = X^3/4, X^4 = 4e^t, Hessian 8e^t -- checked here, c=0 gives 4).
+    MATCH: X = w_B, Y = w_L, Z = w_R, W = w_T, q <-> FI on T (eta/flavour). The six non-vertical chirals give EXACTLY the
+    six ladder monomials, and the identification is the ladder's own shape (B bottom, L/R middle, T top, q at the end).
+    EXTRA: the vertical chiral B-T gives a 7th monomial c X/W. With it, W_c has 8 critical points for generic c
+    (c = 0.7e^{0.3i}, +-1), vs 4 for the bare ladder and chi(Gr(2,4)) = 6 (Marsh-Rietsch's compactified mirror).
+    Possible readings (NOT decided): (a) 8 = 6 + 2, the 2 extra being topological vacua of the U(1) CS level -2, which
+    ARW say decouple as massive; (b) the vertical term is absent/suppressed in the Bessel regime (it has R = 2-2r and sits
+    in the superpotential triangles); (c) its coefficient is fixed by the reduction to a special value. The coefficient c
+    and which chirals are simultaneously in the Bessel regime are not yet derived.
