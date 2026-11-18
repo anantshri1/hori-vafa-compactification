@@ -272,3 +272,20 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     vacua then sit outside the Bessel regime (decoupled), as in ARW. This merges (a) and (b).
     Next: enumerate the sign regions/charts, check they glue by cluster mutations, count vacua per chart and of the union,
     and compute the electric 3d Bethe-vacuum count to see where the +2 lives.
+30. Charts and vacuum counts (charts.py, count_crit.py).
+    - Crude chart model (fluxes in units of nu*, chiral survives iff |k.Q + b| = 1) is too coarse: it misses the ladder
+      chart unless the eta background is b = 4 (then all six ladder chirals survive and B-T drops, as LOG 29 says),
+      and its other charts have <= 6 terms with 0 not interior. Kouchnirenko volumes are only upper bounds here.
+    - KEY numerical fact: the vacuum count of the 6-term ladder depends on its coefficient invariant
+      rho = c_LB c_TL / (c_RB c_TR) (the two B -> T paths, via L and via R):
+         ladder, rho = 1 (EHX/BCFKvS normalisation):   4 critical points (2 at infinity, EHX)
+         ladder, generic coefficients:                  8 critical points
+         ladder + vertical X/W, generic:                12
+      In the reduction rho is NOT 1 in general: the two paths carry different column FIs = flavour fugacity ratios of the
+      electric theory, i.e. rho ~ twisted-mass data. So with generic electric masses the Bessel-regime ladder chart has
+      8 = 6 + 2 vacua: chi(Gr(2,4)) = 6 equivariant vacua plus 2, matching reading (a) (CS-level-2 topological vacua),
+      with the vertical term dropped by the triangle rule (reading (b)-mechanism). Massless limit rho -> 1: 2 vacua
+      run to infinity (the familiar EHX deficit 4 = 6 - 2 of the bare ladder) -- to be checked: which 2?
+    Next: (1) electric 3d Witten index / Bethe-vacuum count of U(2)_{(0,-2)}[4,0] (expect 8 if (a) holds);
+    (2) derive rho and q from the reduction (FI/fugacity map) and check the 8 critical values against Gr(2,4) equivariant
+    quantum cohomology (6) + 2 topological; (3) as rho -> 1 identify which vacua go to infinity.
