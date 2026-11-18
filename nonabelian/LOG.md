@@ -341,3 +341,18 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     O(1) monomial w_B/w_T appears in the ladder region (vertical monomial O(eps); a surviving one would give 10 vacua).
     Whether a 2d e^{-Y}-type term from the monopole sits at higher order is NOT derived.
     (3) q and monomial coefficients from the map: next.
+34. Coefficient step (3) (bessel_chir.py). Single chiral in the Bessel regime x^{nu} ~ eps, checked against the exact
+    q-Pochhammer ratio (6 angles):
+       (x^{2-R+nu}/zeta; q)/(zeta x^{R+nu}; q) = exp[(zeta x^{R+nu} - x^{2-R+nu}/zeta)/(1-q)] (1 + O(eps))
+    max rel. err 8.8e-2, 4.3e-2, 2.2e-2, 1.1e-2 at eps = 0.2, 0.1, 0.05, 0.025 (the (-1)^nu sign lives inside zeta; a
+    first version that also multiplied by s double-counted it, fixed).
+    With w = x^{nu} zeta: X+ = x^R w, X- = x^{2-R} wbar, so each chiral gives (x^R w^Q - x^{2-R} wbar^Q)/(1-q): the
+    W - Wbar of the S^2 LG. CORRECTION to LOG 29: X- is NOT suppressed; it is the antiholomorphic partner. The
+    triangle rule (a chiral whose |nu| is the sum of the other two is O(eps)) is unaffected: it is a statement about x^{|nu|}.
+    Coefficients: c_i = f_i x^{R_i}/(1-q) -> f_i/eps. Rescaling invariants of the 6-term ladder:
+      rho = c_LB c_TL/(c_RB c_TR) = x^{2r}/x^{2r} = 1 EXACTLY (the diagonal chirals carry no flavour fugacity; the masses
+            live in the column FIs, i.e. in the mu.log w terms) -> the EHX/BCFKvS normalisation, as used in LOG 32;
+      q   = c_B c_LB c_TL c_{-T} = eta^{-1} x^{n+4r}/(1-q)^4 ->  ln q = -eps n/2 - 4 ln eps - i theta_eta + O(eps).
+    Electric side (LOG 9-12): kappa_el = -eps n - 8 ln(1-q). So ln q_LG = kappa_el/2: the one-loop running coefficients
+    4 (mirror) and 8 (electric) agree up to the same factor 2 as eps n vs eps n/2, i.e. the sigma normalisation.
+    Monopole exponential at subleading order: no trace found; not further investigated.
