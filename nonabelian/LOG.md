@@ -289,3 +289,20 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Next: (1) electric 3d Witten index / Bethe-vacuum count of U(2)_{(0,-2)}[4,0] (expect 8 if (a) holds);
     (2) derive rho and q from the reduction (FI/fugacity map) and check the 8 critical values against Gr(2,4) equivariant
     quantum cohomology (6) + 2 topological; (3) as rho -> 1 identify which vacua go to infinity.
+31. Step 6 (bethe_exact.py, count_mass.py, values.py).
+    (1) Electric Bethe vacua by exact elimination (resultants, random rational fugacities): symmetric quantisation with
+        chiral factor X^{+1/2}/(1-X) gives 6 vacua (resultant degree 17, 12 ordered solutions z1 != z2); the other sign
+        X^{-1/2}/(1-X) gives 20. The two are different real-mass chambers; the Higgs/GLSM chamber is the one with 6 =
+        chi(Gr(2,4)): NO extra 2 vacua there. (Random-Newton counts for the 4-node mirror were not reliable: 12, 28 and an
+        electric 207/33 from a mis-normalised rerun; discarded.)
+    (2) RETRACTION of LOG 30's reading: twisted masses do not enter the Bessel-regime LG through the coefficient ratio rho
+        but as LINEAR terms mu.log w (column FIs ~ mass differences, as in Hori-Vafa). Counting with that:
+           ladder, unit coefficients, mu = 0:            4  (EHX)
+           ladder, unit coefficients, mu generic:        6  = chi(Gr(2,4))   (two choices of mu, both 6)
+           ladder + vertical X/W, mu generic:            10
+        So: ladder + masses = 6 vacua = electric Higgs-chamber Bethe count. The vertical term must be absent (10 != 6),
+        which is what the triangle rule (LOG 29) gives. Reading (a) (+2 CS vacua) is NOT supported in this chamber; the
+        2 "extra" of LOG 30 were an artefact of putting masses in the coefficients. Reading (b) is.
+    (3) Critical values: first attempt to match q dW/dq spectra of ladder+mu.log w with Gr(2,4) GLSM (-(sigma_i+sigma_j))
+        over permutations/signs of the mass map FAILED (best error ~5): normalisation of mu vs m and of q not fixed yet.
+        Open.
