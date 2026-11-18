@@ -306,3 +306,22 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     (3) Critical values: first attempt to match q dW/dq spectra of ladder+mu.log w with Gr(2,4) GLSM (-(sigma_i+sigma_j))
         over permutations/signs of the mass map FAILED (best error ~5): normalisation of mu vs m and of q not fixed yet.
         Open.
+32. Step 7: VACUUM-LEVEL MATCH (pairsum.py, recover.py). Normalisation-free test first: Gr(2,4) equivariant QC has
+    q dW/dq = -(r_i + r_j) at its 6 vacua, r = roots of prod(sigma - m_j) = q, so the 6 values must split into 3
+    complementary pairs with equal sums.
+    - Ladder + mu.log w with 4 INDEPENDENT mu: fails (rel. err 0.6-0.7). With the column constraint mu_B = mu_T (B and T
+      sit in the same column of the planar quiver and carry the same column FI y3/y2): holds to 2e-13 (mu_B = -mu_T or
+      only one of them: fails, 0.2-1.25).
+    - Recovering the 4 numbers from the pair sums and fitting masses: with m = cumulative sums of the column FIs in the
+      order (mu_L, mu_{B=T}, mu_R) (overall sign +-1, shift fixed by e1), the 4 numbers satisfy
+          e1, e2, e3 = those of (m_1..m_4)  to 2e-13 - 6e-13,   and   e4(x) - e4(m) = q exactly (1.1974+0.5062i).
+      i.e. they ARE the roots of prod_j (sigma - m_j) = q, and the 6 LG vacua are exactly the 6 pairs: the equivariant
+      quantum cohomology vacua of Gr(2,4), vacuum by vacuum, 3 random mass points.
+    (Some solver runs found 5 of 6 critical points; only complete runs used.)
+    CONCLUSION (chain): 3d U(2)_{(0,-2)}[4,0] <-> planar abelian mirror (exact index identity) -> Higgs limit: Gr(2,4)
+    GLSM (all flux sectors) ; Coulomb (Bessel) limit of the mirror: one monomial per light chiral, triangle rule drops the
+    vertical chiral, column FIs -> twisted masses as log terms with mu_B = mu_T: the BCFKvS/Givental ladder LG with masses,
+    whose 6 vacua are exactly Gr(2,4)'s. Reading (b); no extra CS vacua in this chamber.
+    NOT yet done: derive the Bessel-regime LG directly from exact 3d sectors numerically (the monomial rule and triangle rule
+    are derived analytically, checked only through this vacuum structure); coefficients/q from the map; mirror 3d Bethe
+    count by exact elimination; the -/+ chamber with 20 vacua.
