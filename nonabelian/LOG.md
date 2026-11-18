@@ -230,3 +230,19 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
       a smeared GT inequality u_L >= u_B. Interlacing-like shape (lower edge tracks B, upper fixed) comes out of it.
     Next (cheap, CPU only): (i) the region at fixed u as eps -> 0 (does it converge?); (ii) write the stationarity equations
     as Re of the critical equations of W = sum Li2 + CS + FI, take the 2d limit, compare with the BCFKvS ladder potential.
+27. (i) eps -> 0 at fixed n*eps = 4 (amoeba_lim.py, am_lim.log; u-grid 0.5, T/R sampled on u-grids):
+      predicted u_L support, m_B = 0:   n=8 [-1.5, 2.0], n=32 [-1.5, 2.5], n=64 [-1.5, 2.5]
+                             m_B = -n:  n=8 [<=-4 (grid), 2.0], n=32 [<=-4 (grid)], n=64 [-5.0, 2.5]
+    -> the region CONVERGES in u (to grid resolution): a fixed 2d region with finite edge offsets (lower edge ~ u_B - 1..1.5).
+    (ii) Structure, derived: within a region of fixed signs of nu_i, X_i = x^{|nu_i|} zeta_i^{+-1} is a monomial in
+    w_a = x^{m_a} z_a (times flavour), and the stationarity equations are the phase (Im) halves of dW = 0 for
+         W = sum_i (+-) Li2(X_i) + (1/2) sum K_ab log w_a log w_b + (FI + background) . log w,
+    i.e. the 3d twisted superpotential of the mirror on R^2 x S^1 (Bethe / K-theoretic form). So at fixed n*eps the scans sit
+    in a "3d on a circle" regime: Li2 stays Li2, NOT the 2d Hori-Vafa form.
+    CORRECTION to my framing in LOG 18-25: the genuine 2d limit (as for the abelian pair, LOG/project log step 1c) is the
+    Bessel regime x^{|nu|} ~ eps, i.e. n ~ ln(1/eps)/eps with kappa = -eps n - c ln eps fixed. There Li2(X)/eps -> X/eps
+    = e^{-Y} with Y = u/2 + ln eps: a Hori-Vafa LG with one exponential per light chiral (6, or 7 with B), constrained
+    by the sigma (gauge) equations. Only THAT LG can be compared with the BCFKvS/Givental ladder of Gr(2,4).
+    Next: (a) derive this LG explicitly (variables, constraints, CS-induced terms) and count independent variables;
+    (b) fetch the exact BCFKvS / Marsh-Rietsch Gr(2,4) ladder potential and compare term by term; (c) if useful, one GPU
+    slice in the Bessel regime (n ~ ln(1/eps)/eps) to confirm the weight moves there.
