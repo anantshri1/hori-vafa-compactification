@@ -438,3 +438,19 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     So the whole EG question is: does the non-compact (wall, FI = 0) local conifold theory, U(1) with charges (1,1,-1,-1)
     x the spectator C_s, have holomorphic EG = phi(a)phi(b)phi(c)phi(d) (the smooth Gr point), i.e. does its continuum
     remove exactly D_loc? Steps (ii)-(iii) (cigar / Appell-Lerch at k = 1) not done yet.
+42. Option 1a, steps (ii)-(iii): VERDICT = the target fails as formulated (analytic, plus LOG 38/39 numerics).
+    - Local model: U(1) with charges (1,1,-1,-1) and flavour weights a, d (charge +1) and b, c (charge -1) with the
+      conifold relation a + d = b + c. Its EG integrand is elliptic in the gauge variable (y^{sum Q} = 1), so the sum of all
+      residues vanishes: JK(eta > 0) = JK(eta < 0) = the 2-term resolved answer (seen numerically: S_A = S_B, LOG 38).
+      A plain chiral GLSM has no tau-bar dependence, so there is no Appell-Lerch completion to subtract: the
+      holomorphic "wall" EG of this model is just the resolved one. The continuum cannot remove D_loc. (The ADT
+      non-holomorphy needs a non-compact compensator / Stueckelberg field, which this model does not have.)
+    - Vacua: at FI = 0 the 2d Coulomb equation (s+a)(s+d) = (s+b)(s+c) becomes s(a+d-b-c) + (ad - bc) = 0; with the
+      conifold relation a+d = b+c it has NO finite solution (ad != bc generically): both local vacua run to infinity even
+      with twisted masses. This is the mechanism behind 8 -> 6 (LOG 30/36/37): the reduction lands at FI = 0 AND the
+      equivariant weights automatically satisfy the conifold relation.
+    So: vacuum count of the 2d endpoint = 6 = chi(Gr(2,4)), but its (naive, holomorphic) EG = EG(small resolution)
+    (Witten index 8), not EG(Gr(2,4)); the 2 extra states are continuum states at infinity. The EG of the 2d limit theory
+    is not a continuous function of the parameters at this point. The 3d index identity is exact, so this is an
+    order-of-limits / non-compactness issue of the 2d endpoint, not a failure of the 3d duality.
+    Stopped to ask Anant how to read this.
