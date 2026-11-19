@@ -390,3 +390,13 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     "extra" vacua of LOG 30/36 are these two classes; at rho = 1 the curve shrinks and they run off to infinity (non-compact
     Coulomb direction). The 3d reduction lands exactly on the conifold wall, where the vacuum count is chi(Gr(2,4)) = 6.
     Consistent with the duality; not yet a proof that the wall LG has the Gr(2,4) EG (option 1 = the non-compact computation).
+38. Option 1, first attempt (eg_onwall.py): naive on-wall JK. Splitting the 12 non-degenerate pole pairs of the toric
+    GLSM by their charge cone relative to the wall ray (1,1): S_int {(1,0),(0,1)} (4 poles), S_A {(1,0),(1,1)} (4),
+    S_B {(0,1),(1,1)} (4); S_A = S_B identically. No combination (S_int, S_int + S_A = either chamber,
+    S_int + (S_A+S_B)/2, ...) reproduces the Gr(2,4) EG at nome 0.15 or 1e-7 (e.g. y=e^{2 pi i 0.13}: Gr 25.12-3.67i,
+    S_int 51.6+49.8i, chamber 28.41-4.92i). As expected: the holomorphic part of a non-compact EG is not a JK subset;
+    it needs the Troost / Ashok-Doroud-Troost treatment of the continuum (Appell-Lerch-type completion).
+    STATUS: option 1 is a genuine research computation, not done. Stopped to ask Anant.
+    Cheaper intermediate test available: D(tau, y, M) = EG[small resolution] - EG[Gr(2,4)] has chi_y limit y^{-1}+y
+    exactly (LOG 37); check whether D at finite nome equals the local elliptic genus of the exceptional geometry
+    (P^1-fibration over the conifold curve C = P^1, normal bundle O(-1)+O(-1)), equivariantly.
