@@ -427,3 +427,14 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Plan: (i) local equivariant EGs of resolved and deformed conifold x C from the fixed-point data already in eg_local.py;
     (ii) cigar EG at k = 1 with the Appell-Lerch sum (ADT 1311.0918 App. A conventions); (iii) test
     [2 exceptional terms] - [Gr term] = - (holomorphic cigar piece x spectator), vacuum by vacuum, at finite nome.
+41. Option 1a, step (i) DONE (eg_weights.py, eg_conifold.py). Tangent weights at the fixed points show the local conifold
+    exactly: at Gr vacuum {12} the weights {a,b,c,d} = {M3-M1, M4-M1, M3-M2, M4-M2} obey a+d = b+c =: f (the weight
+    relation of xy = zw, i.e. Gr is locally the smoothing xy - zw = s with s of weight f along the curve C); the two
+    replacing toric fixed points are (Y/X, q/W) with weights {a, c, e, f} and (W/Y, q/W) with {b, d, -e, f}, e = b - a
+    (exceptional P^1 weight +-e, curve direction f). Same at {34} with (X, Y/X), (X, W/Y).
+    Universal local function, phi(w) = theta1(w - z)/theta1(w):
+       D_loc(a,b,c) = phi(f)[phi(a)phi(c)phi(e) + phi(b)phi(d)phi(-e)] - phi(a)phi(b)phi(c)phi(d),  d = b+c-a, f = b+c, e = b-a
+    and the full equivariant difference EG_res - EG_Gr = D_loc({12}) + D_loc({34}) EXACTLY (8 digits, nome 0.15, two y).
+    So the whole EG question is: does the non-compact (wall, FI = 0) local conifold theory, U(1) with charges (1,1,-1,-1)
+    x the spectator C_s, have holomorphic EG = phi(a)phi(b)phi(c)phi(d) (the smooth Gr point), i.e. does its continuum
+    remove exactly D_loc? Steps (ii)-(iii) (cigar / Appell-Lerch at k = 1) not done yet.
