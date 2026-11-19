@@ -377,3 +377,16 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     it is the EG of the ladder LG on the wall, i.e. a non-compact LG (Troost 2010; Ashok-Doroud-Troost 2013), which
     is generically non-holomorphic. The vacuum match (LOG 32) is consistent with this; the EG test is NOT passed by this
     route and needs the non-compact computation.
+37. Option 3, wall-crossing (eg_wall.py). The ladder's toric GLSM has rays (1,0),(0,1),(1,1); its two geometric phases
+    cone((1,0),(1,1)) and cone((1,1),(0,1)) are separated by the ray (1,1), i.e. t1 = t2 <-> rho = 1, the reduction's value.
+    - EG identical in both chambers (to all printed digits, nome 0.15 and 1e-7): no jump across the wall (flop invariance).
+    - chi_y (nome -> 0), rigid (mass-independent; checked on 3 mass points, one sample at y=e^{2 pi i 0.13} off by a
+      branch issue):  chi_y[Gr(2,4)] = y^{-2}(1 + y + 2y^2 + y^3 + y^4)   (Hodge 1,1,2,1,1)  -- matches the known answer;
+                      chi_y[toric]   - chi_y[Gr(2,4)] = y^{-1} + y = y^{-2}(y + y^3)     (1.369095, -0.736250 at two y,
+                      exact),
+      i.e. the toric phase has Hodge numbers 1,2,2,2,1: exactly one extra class in H^{1,1} and its dual in H^{3,3}.
+    Reading: the toric phases are the two small resolutions (related by a flop) of the singular toric degeneration X_0 of
+    Gr(2,4); the extra (1,1) class is the exceptional curve, whose volume ~ log rho vanishes on the wall rho = 1. The two
+    "extra" vacua of LOG 30/36 are these two classes; at rho = 1 the curve shrinks and they run off to infinity (non-compact
+    Coulomb direction). The 3d reduction lands exactly on the conifold wall, where the vacuum count is chi(Gr(2,4)) = 6.
+    Consistent with the duality; not yet a proof that the wall LG has the Gr(2,4) EG (option 1 = the non-compact computation).
