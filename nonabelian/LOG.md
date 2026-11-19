@@ -471,3 +471,15 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Supports reading (a): endpoint EG = EG(resolution) - D_loc{12} - D_loc{34} = EG(Gr(2,4)), with the subtraction
     meaning "drop the states at infinity of the conifold Coulomb branch". Index-level only; not a derivation of the
     y-, tau-dependent EG.
+44. Item 1 (chamber map) RESOLVED, and LOG 31/43 CORRECTED (bme_constr.py, Singular, seeds 3 and 8).
+    - The chiral factor X^{+1/2}/(1-X) with the index's bare K is the theory defined by the index (symmetric quantisation,
+      zero point zeta^{-|nu|/2}); X^{-1/2}/(1-X) differs by a factor X^{-1} per chiral, i.e. CS levels shifted by -Q Q^T:
+      a DIFFERENT theory, not another real-mass chamber. So electric "20" (LOG 31) and mirror "28/22" are other theories.
+    - My mirror counts in LOG 43 used generic chiral fugacities, which VIOLATE the superpotential: the planar triangles
+      force f_LB f_TL f_BT = 1 and f_RB f_TR f_BT = 1. With these imposed:
+         mirror, symmetric quantisation: 6 vacua (both seeds; with t_T = +t_B, -t_B, or t_T free)  = electric 6.
+         controls: constraints off -> 12 (the LOG 43 number); constraints on, sigma = -1 -> 22.
+    So the 3d Witten index matches, 6 = 6, in the theory itself; no special/L-R-breaking chamber is needed. The LOG 43
+    reading ("6 only in L<->R-breaking chambers") was an artefact of ignoring the superpotential. The monopole constraint
+    (t_T vs t_B) does not change the count. The genus-1 index of both 3d theories is 6 = chi(Gr(2,4)); the 2 runaway
+    states of the 2d endpoint are not counted in 3d (supports reading (a) of LOG 42, index level).
