@@ -416,3 +416,14 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     at the two vacua {12}, {34}, where the exceptional curve shrinks. Option 1b PASSES as a consistency check.
     What remains for option 1a: show that the non-compact wall theory turns the 4 exceptional terms into the 2 Gr terms
     (+ a non-holomorphic remainder). This is now a LOCAL problem: two copies of a local conifold-type model.
+40. Option 1a, setup (no numerics yet). Locally near each of the two Gr vacua {12}, {34} the toric degeneration X_0 is
+    (conifold) x C, its small resolution (resolved conifold) x C, and Gr(2,4) the smoothing (deformed conifold) x C.
+    So the local test is a conifold-transition statement for elliptic genera: EG(resolved) - EG(Gr) at that vacuum
+    (2 exceptional terms - 1 Gr term) must equal what the non-compact wall theory removes. Natural model: the
+    near-conifold SCFT is the SL(2,R)/U(1) cigar (N=2 Liouville) tensored with spectators (Ghoshal-Vafa), whose EG is
+    holomorphic part = Jacobi form x Appell-Lerch sum A_{1,k}, plus a non-holomorphic completion; literature reading:
+    holomorphic (mock) part = states localised on the blown-up 2-cycle, non-holomorphic part = bulk continuum.
+    Troost 1004.3649 not fetchable here (allowlist); ar5iv / 1311.0918 (ADT GLSM) / 1706.02576 / 1905.05207 reachable.
+    Plan: (i) local equivariant EGs of resolved and deformed conifold x C from the fixed-point data already in eg_local.py;
+    (ii) cigar EG at k = 1 with the Appell-Lerch sum (ADT 1311.0918 App. A conventions); (iii) test
+    [2 exceptional terms] - [Gr term] = - (holomorphic cigar piece x spectator), vacuum by vacuum, at finite nome.
