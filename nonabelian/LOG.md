@@ -400,3 +400,19 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Cheaper intermediate test available: D(tau, y, M) = EG[small resolution] - EG[Gr(2,4)] has chi_y limit y^{-1}+y
     exactly (LOG 37); check whether D at finite nome equals the local elliptic genus of the exceptional geometry
     (P^1-fibration over the conifold curve C = P^1, normal bundle O(-1)+O(-1)), equivariantly.
+39. Option 1b (eg_local.py), fixed-point decomposition of the full equivariant EG (nome 0.15, two y, generic masses):
+    the 8 JK/fixed-point terms of the toric small resolution vs the 6 of Gr(2,4):
+      - FOUR toric fixed points coincide EXACTLY (to 1e-9) with four Gr(2,4) vacua:
+          (Y/X, Z/X) = {M2,M4}, (Y/X, W/Z) = {M2,M3}, (Z/X, W/Y) = {M1,M4}, (W/Y, W/Z) = {M1,M3}
+        (Gr vacua labelled by the pair of flavours, 0-based (1,3),(1,2),(0,3),(0,2)).
+      - The other FOUR toric fixed points, (X, Y/X), (X, W/Y), (Y/X, q/W), (W/Y, q/W), replace exactly TWO Gr vacua,
+        {M1,M2} and {M3,M4}.
+      - Hence D = EG_res - EG_Gr = [4 exceptional-locus terms] - [2 Gr terms], at finite nome, equivariantly
+        (3.291843-1.254030i and -2.462352+1.218492i at the two y; chi_y limit y^{-1}+y, LOG 37).
+    Geometric reading: the toric degeneration X_0 of Gr(2,4) is singular along a curve C = P^1 with two torus-fixed points;
+    those are exactly the Gr vacua {12} and {34}; the small resolution replaces each by the two ends of an exceptional P^1
+    (2 -> 4 fixed points, +2 to the index, Hodge 1,2,2,2,1). Away from C the two spaces agree fixed point by fixed point.
+    So at the level of the full equivariant EG, the reduced mirror (ladder on the wall rho = 1) differs from Gr(2,4) only
+    at the two vacua {12}, {34}, where the exceptional curve shrinks. Option 1b PASSES as a consistency check.
+    What remains for option 1a: show that the non-compact wall theory turns the 4 exceptional terms into the 2 Gr terms
+    (+ a non-holomorphic remainder). This is now a LOCAL problem: two copies of a local conifold-type model.
