@@ -454,3 +454,20 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     is not a continuous function of the parameters at this point. The 3d index identity is exact, so this is an
     order-of-limits / non-compactness issue of the 2d endpoint, not a failure of the 3d duality.
     Stopped to ask Anant how to read this.
+43. Mirror 3d Bethe-vacuum count, EXACT (Singular std + vdim, saturated by z_a and 1 - X_i, random rational fugacities,
+    two seeds agree; bme_singular.py, bme_scan.py, bme_scan*.log). Per-chiral quantisation sign sigma_i (chiral factor
+    X^{sigma_i/2}/(1-X), K' = K + 1/2 sum sigma_i Q_i Q_i^T), all 2^7 = 128 assignments:
+      counts that occur: 4,5,6,7,8,9,10,12,14,16,20,24,28. Uniform sigma = +1: 12; uniform -1: 28 (so the earlier random-
+      Newton 12 and 28 were right; I had wrongly discarded them).
+      Electric (exact, LOG 31): Higgs chamber 6, other chamber 20.
+      - 20 occurs on the mirror (2 L<->R-symmetric assignments + 2 others).
+      - 6 occurs ONLY for 8 assignments that break L<->R: vertical B-T = +1, (B, -T) = (+,-) or (-,+), and exactly one
+        of the four diagonals flipped relative to the others' pattern (list in bme_scan2.log).
+    So the electric Higgs-chamber index 6 IS reproduced by the mirror in a chamber where the real masses distinguish the
+    L and R columns (natural: an ordering of the SU(4) real masses distinguishes the columns). The exact map
+    electric real-mass chamber -> mirror sign assignment is NOT derived; only existence of a matching mirror chamber.
+    Consequence for the EG puzzle (LOG 42): the 3d genus-1 index in the Higgs chamber is 6, on both sides. The 2 runaway
+    states of the 2d endpoint are not counted by the 3d theory; the naive endpoint EG (index 8 = the resolution) over-counts.
+    Supports reading (a): endpoint EG = EG(resolution) - D_loc{12} - D_loc{34} = EG(Gr(2,4)), with the subtraction
+    meaning "drop the states at infinity of the conifold Coulomb branch". Index-level only; not a derivation of the
+    y-, tau-dependent EG.
