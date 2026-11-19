@@ -363,3 +363,17 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
        vertical B-T chiral alone: max |value - 1| = 0.48, 0.22, 0.10  (O(eps): triangle rule confirmed on exact numbers)
     So pointwise, the exact 3d integrand in this region is e^{W - Wbar} of the ladder at O(eps), the vertical chiral
     contributing only its (exact, R-cancelling) zero point.
+36. Elliptic genus (eg.py, eg2.py; nome 0.15, R=0, equivariant masses M_j, mu = (M3-M2, M2-M1, M4-M3, M3-M2)).
+    (A) Gr(2,4) GLSM by JK residues: Witten index (y -> 1) = 6 exactly; EG computed at two y's.
+    (B) The ladder's "inverse Hori-Vafa" GLSM: one chiral per ladder monomial, gauge U(1)^2 = the two exponent relations,
+        charges (1,1),(1,0),(0,1),(1,0),(0,1),(1,1) on (X, Y/X, Z/X, W/Y, W/Z, q/W), masses from E^T m = mu.
+        Witten index = 8 (JK chamber eta = (1, 0.37); the mirror chamber gives 8 too), EG ratio to Gr(2,4):
+        1.33, 1.135-0.030i, 1.041-0.035i at y = 1, e^{2 pi i 0.13}, e^{2 pi i (0.21+0.04i)}. No 6-subset of its 8 JK
+        residues reproduces the Gr(2,4) EG (best mismatch 2.1 on |EG| ~ 25).
+    Interpretation: this smooth toric GLSM has two FIs, which in its HV mirror are the two ladder invariants q and rho.
+    Generic rho -> 8 vacua (matches LOG 30's count for generic coefficients); the 3d reduction fixes rho = 1 EXACTLY
+    (LOG 34), where 2 vacua run to infinity: rho = 1 is a WALL of the toric GLSM (non-compact Coulomb direction; the
+    toric degeneration of Gr(2,4) is singular there). So the EG of the reduced mirror is NOT the EG of a smooth toric GLSM;
+    it is the EG of the ladder LG on the wall, i.e. a non-compact LG (Troost 2010; Ashok-Doroud-Troost 2013), which
+    is generically non-holomorphic. The vacuum match (LOG 32) is consistent with this; the EG test is NOT passed by this
+    route and needs the non-compact computation.
