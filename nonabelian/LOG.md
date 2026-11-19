@@ -483,3 +483,16 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     reading ("6 only in L<->R-breaking chambers") was an artefact of ignoring the superpotential. The monopole constraint
     (t_T vs t_B) does not change the count. The genus-1 index of both 3d theories is 6 = chi(Gr(2,4)); the 2 runaway
     states of the 2d endpoint are not counted in 3d (supports reading (a) of LOG 42, index level).
+45. Item 2(a), chart analysis (charts2.py). Exact chiral factor in the Bessel regime, by sign of nu (derived from the
+    q-Pochhammer, LOG 34 extended): nu > 0: exp[(x^R w^Q - x^{2-R} wbar^Q)/eps]; nu < 0: exp[(x^R / wbar^Q - x^{2-R}/w^Q)/eps].
+    So the holomorphic term is w^Q on one side and -1/w^Q on the other: a piecewise (tropical / mutation-type) W, not one
+    global Laurent polynomial. In the ladder region the vertical chiral has nu ~ -2 nu*, its term is -1/w^{Q_BT} ~ O(eps):
+    the true W there is ladder + O(eps) (T/B) -- consistent with LOG 35's pointwise check.
+    Charts (one chiral dropped per triangle): ladder (B-T dropped) has 6 critical points (masses on); the four charts
+    with B-T active and one of {L-B,T-L}, one of {R-B,T-R} dropped have 2 each (5 monomials).
+    With the reduction's coefficients the alternative charts' invariant is ~ x^n/eps ~ eps^3 (ladder q = O(1)); their
+    2 critical points drift to |log w| ~ 8.4, 12.0, 14.8 at eps = 0.1, 0.03, 0.01 (one lost by the solver at 0.01),
+    i.e. ~ 3 ln(1/eps) away from the ladder region. Whether they are self-consistent saddles of the exact 3d integrand
+    (they would add vacua beyond 6, contradicting the exact 3d count of 6, LOG 44) is NOT settled: needs the raw-region
+    check (signs and sizes of all nu_i at those points). Expectation: inconsistent (exit their chart). Open.
+    Item 2(b) (numerical region sums) not started.
