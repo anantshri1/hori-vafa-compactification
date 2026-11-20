@@ -496,3 +496,14 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     (they would add vacua beyond 6, contradicting the exact 3d count of 6, LOG 44) is NOT settled: needs the raw-region
     check (signs and sizes of all nu_i at those points). Expectation: inconsistent (exit their chart). Open.
     Item 2(b) (numerical region sums) not started.
+46. Item 2, raw-region self-consistency (raw_saddles.py): INCONCLUSIVE, model not validated.
+    Piecewise raw W (branch + : x^R f e^{Y}/eps for |e^Y| < 1; branch - : -x^{2-R} e^{-Y}/(f eps) for |e^Y| > 1; masses
+    mu.log w; triangle fugacity constraints; x^n = eps^4), all 2^7 branch patterns, solutions kept if every chiral is on
+    its assumed side (and, second pass, outside the Li2 crossover |Y| < |ln eps|/2):
+      eps = 0.1: 145, 0.03: 101-109, 0.005: 71 "consistent" saddles spread over ~50 patterns; even the ladder pattern
+      (++++++-) gives 10 / 8, NOT the 6 of the ladder LG (LOG 32).
+    So this crude model does not reproduce the established ladder count; likely culprits: relative normalisation of the
+    mass terms vs the 1/eps monomials (masses must scale like 1/eps to stay O(1) in 2d units), the crossover region
+    treated with the asymptotic forms, and dedupe/solver noise (150 starts per pattern, real-part dedupe).
+    Not usable to decide whether non-ladder charts host saddles. The trustworthy route is item 2(b): exact mirror
+    flux-sector sums in the Bessel scaling, region by region (needs the GPU; ~$4 HF left; ask Anant before spending).
