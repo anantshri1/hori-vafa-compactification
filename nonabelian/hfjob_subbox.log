@@ -1,0 +1,22 @@
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.0.1 -> 26.3
+[notice] To update, run: pip install --upgrade pip
+Fri Nov 20 13:27:25 UTC 2026
+eps=0.2 hw=1 ladder ++++++-     centre (np.int64(-32), np.int64(-20), np.int64(-44), np.int64(-32)): exact sum 3.811588e-02+5.571354e-02j (sum|.| 7.134e-01, coherence 9.46e-02) | LG sum 4.263358e-02+4.989408e-02j | |exact-LG|/sum|.| 1.03e-02  [4s]
+SMOKE ladder sub-box exact vs LG rel 1.03e-02 (need < 3e-2)
+SMOKE PASSED
+eps=0.2 hw=4 ladder ++++++-     centre (np.int64(-32), np.int64(-20), np.int64(-44), np.int64(-32)): exact sum 2.244362e-02+3.740926e-02j (sum|.| 2.155e+01, coherence 2.02e-03) | LG sum 2.988299e-02+3.497206e-02j | |exact-LG|/sum|.| 3.63e-04  [54s]
+eps=0.2 hw=4 -T flip +++-++-    centre (np.int64(-28), np.int64(4), np.int64(-60), np.int64(-28)): exact sum 1.482031e-02+1.209689e-02j (sum|.| 2.083e+01, coherence 9.19e-04) | LG sum 8.405296e-03+3.623338e-03j | |exact-LG|/sum|.| 5.10e-04  [52s]
+eps=0.2 hw=4 B flip -+++++-     centre (np.int64(-36), np.int64(-4), np.int64(-68), np.int64(-36)): exact sum 7.564816e-03+1.578767e-02j (sum|.| 2.083e+01, coherence 8.41e-04) | LG sum 2.278319e-03+8.922231e-03j | |exact-LG|/sum|.| 4.16e-04  [52s]
+Fri Nov 20 13:30:08 UTC 2026
+eps=0.2 hw=8 ladder ++++++-     centre (np.int64(-32), np.int64(-20), np.int64(-44), np.int64(-32)): exact sum -3.202754e-02-3.608677e-02j (sum|.| 1.317e+02, coherence 3.66e-04) | LG sum -1.233087e-02-1.399291e-02j | |exact-LG|/sum|.| 2.25e-04  [575s]
+eps=0.2 hw=8 -T flip +++-++-    centre (np.int64(-28), np.int64(4), np.int64(-60), np.int64(-28)): exact sum -1.107010e-01+2.692798e-02j (sum|.| 1.839e+02, coherence 6.19e-04) | LG sum 1.219703e-02+4.764584e-02j | |exact-LG|/sum|.| 6.78e-04  [570s]
+eps=0.2 hw=8 B flip -+++++-     centre (np.int64(-36), np.int64(-4), np.int64(-68), np.int64(-36)): exact sum 2.237402e-02-8.203338e-02j (sum|.| 1.839e+02, coherence 4.62e-04) | LG sum 4.596346e-02+2.107014e-02j | |exact-LG|/sum|.| 5.75e-04  [580s]
+Fri Nov 20 13:58:56 UTC 2026
+eps=0.2 hw=12 ladder ++++++-     centre (np.int64(-32), np.int64(-20), np.int64(-44), np.int64(-32)): exact sum 3.485727e-03+2.360521e-02j (sum|.| 4.617e+02, coherence 5.17e-05) | LG sum 1.290619e-02+1.599671e-02j | |exact-LG|/sum|.| 2.62e-05  [2758s]
+eps=0.2 hw=12 -T flip +++-++-    centre (np.int64(-28), np.int64(4), np.int64(-60), np.int64(-28)): exact sum -1.425782e-01-7.435810e-02j (sum|.| 5.149e+02, coherence 3.12e-04) | LG sum 9.788651e-02+9.234978e-03j | |exact-LG|/sum|.| 4.94e-04  [2528s]
+eps=0.2 hw=12 B flip -+++++-     centre (np.int64(-36), np.int64(-4), np.int64(-68), np.int64(-36)): exact sum -5.389850e-02-2.285147e-01j (sum|.| 5.149e+02, coherence 4.56e-04) | LG sum -1.381371e-02+9.803912e-02j | |exact-LG|/sum|.| 6.39e-04  [2581s]
+Fri Nov 20 16:10:08 UTC 2026
+eps=0.2 hw=6 far (+3nu* off)    centre (np.int64(16), np.int64(32), np.int64(0), np.int64(16)): exact sum -1.558396e-20+1.055929e-18j (sum|.| 1.730e-15, coherence 6.10e-04) | LG sum 1.953274e-03-7.170739e-04j | |exact-LG|/sum|.| 1.20e+12  [215s]
+Fri Nov 20 16:13:44 UTC 2026

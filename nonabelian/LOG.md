@@ -542,3 +542,19 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     integrand there differs from the LG. (Level-1 abelian CS ~ topological sector; whether its contribution cancels in
     the coherent sum is what the sub-box job tests.) BF / FI terms become linear log w terms (FIs, twisted masses); the
     B-eta BF and the B zero point cancel (LOG 15); the gauge-R mixing cancels (LOG 33).
+48. Coherent sub-box sums (hfjob_subbox.log, eps = 0.2, sharp boxes hw = 4, 8, 12; smoke PASSED 1.0e-2):
+       region      hw   exact sum              LG sum                 sum|.|   coherence |sum|/sum|.|
+       ladder       4   0.0224+0.0374i         0.0299+0.0350i          21.6    2.0e-3
+       ladder       8  -0.0320-0.0361i        -0.0123-0.0140i         132      3.7e-4
+       ladder      12   0.0035+0.0236i         0.0129+0.0160i         462      5.2e-5
+       -T flip   4/8/12  0.015+0.012i / -0.111+0.027i / -0.143-0.074i  (LG 0.008+0.004i / 0.012+0.048i / 0.098+0.009i)
+       B flip    4/8/12  0.008+0.016i / 0.022-0.082i / -0.054-0.229i   (LG 0.002+0.009i / 0.046+0.021i / -0.014+0.098i)
+       far (hw 6)       ~1e-18                 0.0020-0.0007i
+    READING: INCONCLUSIVE, and my headline metric was misleading. Coherence falls by 10^2 - 10^3 as the box grows in every
+    region: the sharp-box sums are O(0.01-0.2) residues of massive cancellation, they do NOT converge with box size, i.e.
+    they are boundary terms of an oscillatory sum. |exact-LG|/sum|.| is small everywhere only because sum|.| grows; in
+    absolute terms exact and LG differ by as much as the sums themselves, even in the ladder region at hw = 12.
+    Also: the LG integrand has non-zero coherent weight far away (2e-3) where the exact integrand is ~1e-18.
+    Lesson: sharp boxes cannot isolate a region's contribution to an oscillatory integral. Needed: smooth windows
+    (Gaussian taper) whose sums converge as the width grows; then only stationary points inside the window contribute,
+    and the prediction is: ladder windows -> the 6 saddle contributions, flip / far windows -> 0 (exact), with exact = LG.
