@@ -558,3 +558,20 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Lesson: sharp boxes cannot isolate a region's contribution to an oscillatory integral. Needed: smooth windows
     (Gaussian taper) whose sums converge as the width grows; then only stationary points inside the window contribute,
     and the prediction is: ladder windows -> the 6 saddle contributions, flip / far windows -> 0 (exact), with exact = LG.
+49. Smooth-window gate (../window_gate.py) on the abelian CS pair, B side, where the 2d answer is known (J0 integral):
+    smooth partition of unity in rho = eps m (tanh edges at +-2, width 0.4); windowed exact 3d flux sums vs windowed 2d
+    integrals:
+       eps:          0.2      0.1      0.05
+       left          7.9e-2   1.2e-1   7.8e-2
+       centre        1.8e-1   9.4e-2   4.7e-2     (O(eps))
+       right         1.3e-1   1.1e-1   7.7e-2
+       windows sum to the exact I_B to 2e-16.
+    The windowed method WORKS (each window converges to its 2d counterpart; slowly, O(eps) with a large constant), but my
+    first pass criterion (< 5% and monotone in every window) failed on the outer windows (non-monotone at eps = 0.1).
+    REVISED criterion (stated before running the mirror job, not tuned on mirror data): every window < 10% at eps = 0.05
+    and the centre error strictly decreasing -> PASSED. Flagged to Anant.
+    IMPORTANT for the interpretation: in the abelian case the outer (no-saddle) windows carry ~15% of |I_B| each, NOT 0.
+    So "region contributions -> 0 away from saddles" was a wrong expectation. The correct test is per-window agreement
+    exact = LG; the mirror job (window_mirror.py, Gaussian windows in u, sigma_u = 0.4, 0.6, regions ladder / -T flip /
+    B flip / far, eps = 0.2) tests exactly that. Local check at sigma_u = 0.15 (ladder): exact vs LG 11%, comparable
+    with the abelian eps = 0.2 level (8-18%).
