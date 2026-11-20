@@ -507,3 +507,22 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     treated with the asymptotic forms, and dedupe/solver noise (150 starts per pattern, real-part dedupe).
     Not usable to decide whether non-ladder charts host saddles. The trustworthy route is item 2(b): exact mirror
     flux-sector sums in the Bessel scaling, region by region (needs the GPU; ~$4 HF left; ask Anant before spending).
+47. Region weight map (HF job cpu-upgrade, hfjob_regions.log; Fourier-convolution exact sectors, smoke gate PASSED:
+    grid-vs-Fourier 5.5e-6, cutoff 4e-16). Sum|S| by sign pattern of (nu_B, nu_LB, nu_TL, nu_-T, nu_RB, nu_TR, nu_BT),
+    u-box +-3 nu* around the ladder point, stride nu*/4 (390625 sectors each; 29 min at eps=0.2, 92 min at eps=0.1):
+                               eps = 0.2     eps = 0.1
+      ++++++-  (ladder)        0.201         0.206
+      +++-++-  (-T flipped)    0.075         0.121
+      -+++++-  (B flipped)     0.075         0.121
+      +++0++- / 0+++++-        0.073/0.073   0.077/0.064   (nu = 0 boundary sectors)
+      everything else          < 0.02 each
+    - The ladder pattern is the single largest but carries only ~20% of sum|S|, flat in eps.
+    - The next patterns differ only by the branch of B or -T (the two chirals outside the triangles), and their share
+      GROWS as eps -> 0 (0.075 -> 0.121). Patterns flipping a diagonal or keeping B-T active are small (~0.015-0.03).
+    CAVEAT on the observable: sum|S| measures where sectors are O(1), not their contribution to the index (the exact
+    integrand is a pure phase in the Bessel regime; the integral comes from coherent sums and cancels in oscillatory
+    regions). It cannot decide the integral identity. It does show: (i) non-ladder regions are NOT pointwise suppressed;
+    (ii) the relevant other regions are the B / -T branch flips (large |w_B| or |w_T|), i.e. the ends of the ladder,
+    where the exact chiral factor is -1/w instead of w: the ladder LG and the exact integrand differ there.
+    Next (needs a coherent observable): exact contiguous sums over sub-boxes per region at one eps, compared with the
+    LG prediction per region; or a full exact index at eps = 0.2 in the Fourier method (~10^8 sectors: too costly as is).

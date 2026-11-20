@@ -1,0 +1,37 @@
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.0.1 -> 26.3
+[notice] To update, run: pip install --upgrade pip
+Fri Nov 20 08:54:26 UTC 2026
+SMOKE grid-vs-fourier max rel 5.5e-06 (need < 1e-4); cutoff convergence 4.0e-16 (need < 1e-10)
+eps=0.2 nu*=16 S=1: 81 sectors in 2s; total sum|S| = 7.3313e-02
+SMOKE scan ran; top shares sum 0.859
+SMOKE PASSED
+eps=0.2 nu*=16 S=4: 390625 sectors in 1723s; total sum|S| = 2.3680e+01
+  pattern ++++++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.2005  max sector 1.058e-02 at m=(-32, -20, -44, -32)
+  pattern +++-++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0754  max sector 3.595e-03 at m=(-28, 4, -60, -28)
+  pattern -+++++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0754  max sector 3.595e-03 at m=(-36, -4, -68, -36)
+  pattern 0+++++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0732  max sector 7.165e-03 at m=(-44, -24, -64, -44)
+  pattern +++0++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0730  max sector 7.149e-03 at m=(-20, 0, -40, -20)
+  pattern 0++0++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0199  max sector 6.763e-03 at m=(-32, 0, -64, -32)
+  pattern +0++++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0195  max sector 3.592e-03 at m=(-48, -16, -48, -32)
+  pattern ++0+++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0195  max sector 3.592e-03 at m=(-16, -16, -48, -32)
+  pattern +++++0- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0195  max sector 3.592e-03 at m=(-32, -16, -48, -16)
+  pattern ++++0+- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0195  max sector 3.592e-03 at m=(-32, -16, -48, -48)
+  pattern 0++-++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0186  max sector 3.301e-03 at m=(-32, 4, -64, -28)
+  pattern -++0++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0185  max sector 3.293e-03 at m=(-36, 0, -68, -32)
+Fri Nov 20 09:23:33 UTC 2026
+eps=0.1 nu*=46 S=4: 390625 sectors in 5508s; total sum|S| = 5.1500e+00
+  pattern ++++++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.2064  max sector 4.159e-03 at m=(-92, -58, -126, -92)
+  pattern +++-++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.1212  max sector 4.046e-03 at m=(-58, 12, -126, -58)
+  pattern -+++++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.1212  max sector 4.046e-03 at m=(-126, -58, -196, -126)
+  pattern +++0++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0768  max sector 2.845e-03 at m=(-58, 0, -126, -58)
+  pattern 0+++++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0639  max sector 2.460e-03 at m=(-126, -58, -184, -126)
+  pattern -++-++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0305  max sector 1.545e-03 at m=(-92, 12, -196, -92)
+  pattern -++0++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0223  max sector 1.347e-03 at m=(-104, 0, -196, -92)
+  pattern 0++-++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0182  max sector 1.101e-03 at m=(-92, 12, -184, -80)
+  pattern +0++++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0151  max sector 9.443e-04 at m=(-138, -46, -138, -92)
+  pattern ++0+++- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0151  max sector 9.443e-04 at m=(-46, -46, -138, -92)
+  pattern +++++0- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0151  max sector 9.443e-04 at m=(-92, -46, -138, -46)
+  pattern ++++0+- (B,L-B,T-L,-T,R-B,T-R,B-T): share 0.0151  max sector 9.443e-04 at m=(-92, -46, -138, -138)
+Fri Nov 20 10:55:21 UTC 2026
