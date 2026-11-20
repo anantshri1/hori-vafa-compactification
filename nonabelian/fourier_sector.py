@@ -47,3 +47,33 @@ def sector(m, x, fl, n, Kc=24, Nf=256):
         k = k0[i] + CYC[0, i]*T1 + CYC[1, i]*T2 + CYC[2, i]*T3
         tot = tot*c[i][np.mod(k, Nf)]
     return C*tot.sum()
+
+LADDER = [0, 1, 2, 3, 4, 5]          # all but the vertical B-T
+SYM = True   # symmetric (pure-phase) LG approximant x^{1+nu}(zeta - 1/zeta): the 2d S^2 form; avoids spurious growth
+def coeffs_lg(nu, R, phase, x, Nf):
+    """Ladder-LG approximant of one chiral on the circle: exp[(zeta x^{R+nu} - x^{2-R+nu}/zeta)/(1-q)] with SIGNED nu
+    (i.e. always the monomial w^Q, whatever the sign of nu)."""
+    q = x*x; th = 2*np.pi*np.arange(Nf)/Nf
+    zeta = (1 if nu % 2 == 0 else -1)*phase*np.exp(1j*th)
+    with np.errstate(over='ignore'):
+        F = np.exp((zeta*x**(R + nu) - x**(2 - R + nu)/zeta)/(1 - q)) if not SYM else np.exp(x**(1 + nu)*(zeta - 1/zeta)/(1 - q))
+    return np.fft.fft(F)/Nf
+def sector_lg(m, x, fl, n, Kc=16, Nf=256):
+    """Same sector with the 6 ladder chirals replaced by their LG approximant (signed nu) and the vertical chiral by 1;
+    zero points / CS / FI monomials and constants kept EXACT (identical to sector())."""
+    ez, nus, C, lf = bookkeeping(m, x, fl, n)
+    ph = [np.exp(sum(c*lf[f] for f, c in flc.items())) for _, flc, _ in CH]
+    c = []
+    for i in range(7):
+        if i in LADDER:
+            # signed nu: |w^Q| = x^{nu}; the exact factor used |nu| -- here we keep the ladder monomial
+            c.append(coeffs_lg(nus[i], CH[i][2], ph[i], x, Nf))
+        else:
+            e = np.zeros(Nf, complex); e[0] = 1.0; c.append(e)
+    k0 = np.zeros(7, int); k0[BASIS] = np.round(np.linalg.solve(Qb, -ez)).astype(int)
+    t = np.arange(-Kc, Kc + 1); T1, T2, T3 = np.meshgrid(t, t, t, indexing='ij')
+    tot = np.ones_like(T1, dtype=complex)
+    for i in range(7):
+        k = k0[i] + CYC[0, i]*T1 + CYC[1, i]*T2 + CYC[2, i]*T3
+        tot = tot*c[i][np.mod(k, Nf)]
+    return C*tot.sum()
