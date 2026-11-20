@@ -526,3 +526,19 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     where the exact chiral factor is -1/w instead of w: the ladder LG and the exact integrand differ there.
     Next (needs a coherent observable): exact contiguous sums over sub-boxes per region at one eps, compared with the
     LG prediction per region; or a full exact index at eps = 0.2 in the Fourier method (~10^8 sectors: too costly as is).
+48a. CS levels through the KK / Bessel limit (Anant's question; algebra, checked by script). In the index the CS term is
+    z^{Km}; in continuum variables log w_a = -eps m_a/2 + i phi_a it is e^{i phi.K m} = e^{i phi.K u/eps}, i.e. the
+    quadratic term (1/2 eps) K log w log w of the twisted superpotential (its W - Wbar combination). In a flux region
+    where chiral i has sign s_i = sign(nu_i), its zero point z^{-Q_i |nu_i|/2} = z^{-s_i Q_i (Q_i.m + bg)/2} adds
+    -1/2 s_i Q_i Q_i^T: the usual "integrating out a chiral of real-mass sign s shifts k by -s/2". Effective levels
+       K_eff(region) = K - 1/2 sum_i s_i Q_i Q_i^T :
+       ladder ++++++- : K_eff = 0 EXACTLY (all 16 entries)   -> no quadratic term: W = exponentials + linear (FI, masses)
+       -T flipped +++-++- : K_eff = diag(0, 1, 0, 0) (level 1 on T)
+       B flipped  -+++++- : K_eff = diag(0, 0, 1, 0) (level 1 on B)
+       L-B flipped: K_eff[L,B block] = [[1,-1],[-1,1]];  T-R flipped: [[1,-1],[-1,1]] on (T,R);  B-T at nu = 0: +-1/2 on (T,B).
+    So the ladder chart is exactly the region where all CS levels cancel against the integrated-out chirals; that is
+    WHY it is a pure Hori-Vafa-type LG. In the B / -T flipped regions a level-1 CS term survives on B or T: a quadratic
+    (log w)^2 / eps term that the ladder LG does not contain -- consistent with the LOG 47/48 finding that the exact
+    integrand there differs from the LG. (Level-1 abelian CS ~ topological sector; whether its contribution cancels in
+    the coherent sum is what the sub-box job tests.) BF / FI terms become linear log w terms (FIs, twisted masses); the
+    B-eta BF and the B zero point cancel (LOG 15); the gauge-R mixing cancels (LOG 33).
