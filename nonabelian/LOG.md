@@ -609,3 +609,16 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Gate A NOT passed cleanly. Candidates: (a) electric side not converged at n = 4 (M = 6 / Ng = 96; LOG 9 says M >= 7
     is destroyed by cancellation, so I cannot simply raise M with the grid engine); (b) the map has an n-dependence beyond
     the n/2 power (e.g. a background-CS term ~ n^2 or a sign (-1)^{...}). Stopped per the gate rule; steps B-D not run.
+53. Gate A PASSED with Fourier engines on both sides (elec_fourier.py: electric U(2) by 1D Fourier convolution per
+    sector, exact W-boson Laurent terms; gateA3.py). The 5% at n = 4 in LOG 52 was the ELECTRIC GRID: Fourier electric
+    n = 4 = 1.45694e-6 vs grid 1.38773e-6 (n = 2: agree to 3e-5). Map I_el(n) = (x^{3(1-r)} w (y1y2)^2)^{n/2} I_mir(-n):
+      n = 2: C = 1.0000001, 1.0000002 ; n = 4: 0.99988, 0.99867 ; n = 6: 0.99981 (mirror box L,R,B in [-n-6, 6];
+      box [-n-4,4] gave 0.60-0.71i: L,R must also extend to -n) ; n = 3: C = -1.00004 / +1.00019 (odd n: sign of the
+      half power, branch-dependent, as expected).
+    Total T (eps = 0.2, eta-flux -64, window_mirror.py fugacities) via the electric side: I_el = 7.90883e-4+1.016e-5i
+    (M = 20 and 40 identical), T_mirror = 0.41942+0.50382i, |T| = 0.656.
+    Comparison with LOG 50 windows: NOT decisive. The Gaussian windows (sigma_u = 0.4) are tiny patches (|ladder| 1.4e-3,
+    |flips| ~5e-2) of a region of size ~3 in u; with coherence 1e-3-1e-4 they are residuals, and none holds a sizeable
+    fraction of T. The decisive version needs a smooth partition of unity covering ALL of flux space, with each piece
+    computed exactly and with the ladder LG, and the pieces summing to T (coverage check). Affordable at eps = 0.3
+    (nu* = 8, box +-3 nu*: ~6e6 sectors, ~1 h on cpu-upgrade); eps = 0.2 is ~1e8 sectors (~14 h).
