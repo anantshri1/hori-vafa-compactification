@@ -592,3 +592,11 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     regions in the total (not tested: needs a partition of unity over all regions); (ii) the 2d mirror is the ladder LG
     plus end-sectors from the level-1 CS on B and T (topological U(1)_1-type pieces), i.e. a corrected LG; (iii) the
     Bessel-regime LG needs both branches of the end chirals (w and -1/w), i.e. a different global W. Stopped to ask.
+51. Option-1 provenance test, gate A (general-n flux map, fluxmap_n.py; r=0.45, x=0.03, electric M=6 Ng=96, mirror grid):
+      n = 2: C = 1.000098+0.000053i, 1.000374+0.000872i at the two fugacity points (map confirmed, 1e-4; = LOG 9).
+      n = 4: C = 0.098-0.868i (mirror M=3) vs -0.993-0.184i (mirror M=2): NOT converged in the mirror flux cutoff.
+    Not a failure of the map: with eta-flux -n the mirror weight sits on m_B in [-n, 0] (LOG 18), so a box M=3 cannot
+    hold n = 4. Gate A is therefore open at n = 4. Fix: evaluate the mirror with the Fourier-convolution engine
+    (fourier_sector.py) over a box covering m_B in [-n-3, 3] (cheap at x = 0.03), with refined.py's fugacity map and
+    r = 0.45 (fourier_sector currently hard-wires optc_defs' r = 0.3: needs a parameter). Grid electric runs take ~18 min
+    per point at M = 6, so steps B-D (electric total at eps = 0.2, n = 64) need the residue engine, not the grid.
