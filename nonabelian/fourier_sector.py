@@ -77,3 +77,8 @@ def sector_lg(m, x, fl, n, Kc=16, Nf=256):
         k = k0[i] + CYC[0, i]*T1 + CYC[1, i]*T2 + CYC[2, i]*T3
         tot = tot*c[i][np.mod(k, Nf)]
     return C*tot.sum()
+
+def set_r(rr):
+    """Rebuild the chiral list with R-charge r = rr (vertical 2 - 2r). Q unchanged."""
+    global CH
+    CH = [(c[0], c[1], (2 - 2*rr) if i == 6 else rr) for i, c in enumerate(CH)]

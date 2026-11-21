@@ -600,3 +600,12 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     (fourier_sector.py) over a box covering m_B in [-n-3, 3] (cheap at x = 0.03), with refined.py's fugacity map and
     r = 0.45 (fourier_sector currently hard-wires optc_defs' r = 0.3: needs a parameter). Grid electric runs take ~18 min
     per point at M = 6, so steps B-D (electric total at eps = 0.2, n = 64) need the residue engine, not the grid.
+52. Gate A' (gateA2.py, elec_n4.py; r = 0.45, x = 0.03, point y-angles (0.4,1.1,-0.6), e = e^{0.9i}). Mirror via the
+    Fourier engine (fourier_sector.set_r, refined.py fugacity map) over a box with m_B in [-n-h, h]:
+      n = 4 mirror: h = 4 -> 8.36391e-3-1.54296e-1i, h = 5 -> 8.34509e-3-1.54296e-1i (box-converged to 2e-4)
+      electric grid (M = 6, Ng = 96): n = 2: 3.0797004e-3+5.6e-8i ; n = 4: 1.3877286e-6+5.5e-8i
+      C(2) = 0.99997+0.00002i   -> Fourier mirror + refined map VALIDATED against the electric side (3e-5)
+      C(4) = 0.9524+0.0378i     -> conjectured map (x^{3(1-r)} w (y1y2)^2)^{n/2} OFF BY ~5% at n = 4.
+    Gate A NOT passed cleanly. Candidates: (a) electric side not converged at n = 4 (M = 6 / Ng = 96; LOG 9 says M >= 7
+    is destroyed by cancellation, so I cannot simply raise M with the grid engine); (b) the map has an n-dependence beyond
+    the n/2 power (e.g. a background-CS term ~ n^2 or a sign (-1)^{...}). Stopped per the gate rule; steps B-D not run.

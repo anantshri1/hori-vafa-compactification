@@ -12,7 +12,7 @@ def mir(y, e, n, M):
     def patched(*a, **k): k['bg'] = {'eta': -n}; return orig(*a, **k)
     RF.theory_index = patched
     v = RF.mirror(y, e, 1, M=M, Ng=24); RF.theory_index = orig; return v
-for n in [int(a) for a in sys.argv[1:]] or [2, 4]:
+for n in ([int(a) for a in sys.argv[1:]] if __name__ == "__main__" else []):
     for yang, wang in [([0.4, 1.1, -0.6], 0.9), ([-0.8, 0.5, 1.7], -0.7)]:
         y3 = np.exp(1j*np.array(yang)); y = list(y3) + [1/np.prod(y3)]; e = np.exp(1j*wang)
         E = el(y, e, n, 6); pre = (x**(3*(1-r))*e*(y[0]*y[1])**2)**(n/2)
