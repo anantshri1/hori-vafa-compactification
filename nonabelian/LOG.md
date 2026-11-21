@@ -575,3 +575,20 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     exact = LG; the mirror job (window_mirror.py, Gaussian windows in u, sigma_u = 0.4, 0.6, regions ladder / -T flip /
     B flip / far, eps = 0.2) tests exactly that. Local check at sigma_u = 0.15 (ladder): exact vs LG 11%, comparable
     with the abelian eps = 0.2 level (8-18%).
+50. Gaussian-windowed mirror sums (hfjob_windows.log; both gates PASSED; eps = 0.2, windows in u, sigma_u = 0.4, 0.6):
+                       sigma 0.4                                    sigma 0.6
+      ladder   exact 8.07e-4+1.20e-3i  LG 8.60e-4+1.01e-3i (15%)   exact -3.1e-7-9.7e-7i  LG -1.4e-6-1.7e-6i (60%, tiny)
+      -T flip  exact -4.70e-2-1.84e-2i LG 4.16e-3+1.77e-3i (x12)   exact -1.6e-4+1.32e-2i LG 4.9e-3-3.1e-3i  (x2.9)
+      B flip   exact -5.86e-3-4.60e-2i LG 1.05e-3+4.20e-3i (x12)   exact 1.26e-2+2.7e-3i  LG -3.7e-3+4.4e-3i (x2.8)
+      far      exact ~1e-20            LG 2.4e-5                    exact ~1e-21           LG 3.6e-6
+    VERDICT: NEGATIVE for "the ladder LG is the whole 2d limit". In the ladder window exact = LG at the 15% level (the
+    abelian benchmark at the same eps is 8-18%), but in the B- and -T-flip windows the exact coherent sums are
+    10-60x larger than the ladder window and DISAGREE with the ladder LG by factors 3-12 (wrong phase too). The LG also
+    has small spurious weight far away where the exact integrand vanishes. Exactly the regions where K_eff = 1 on B or T
+    (LOG 48a) carry coherent contributions the ladder LG does not reproduce.
+    What is still true: 3d identity (exact), Higgs limit = Gr(2,4) GLSM, ladder region pointwise = ladder LG, vacuum
+    match 6 = 6, R-mixing cancellation, Bethe counts. What fails: the claim that the mirror's 2d limit is the ladder LG
+    alone. Possible resolutions (undecided): (i) the flip-region contributions cancel among themselves / with other
+    regions in the total (not tested: needs a partition of unity over all regions); (ii) the 2d mirror is the ladder LG
+    plus end-sectors from the level-1 CS on B and T (topological U(1)_1-type pieces), i.e. a corrected LG; (iii) the
+    Bessel-regime LG needs both branches of the end chirals (w and -1/w), i.e. a different global W. Stopped to ask.

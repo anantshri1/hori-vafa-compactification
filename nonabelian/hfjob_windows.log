@@ -1,0 +1,31 @@
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.0.1 -> 26.3
+[notice] To update, run: pip install --upgrade pip
+Fri Nov 20 22:42:27 UTC 2026
+eps=0.2: window left   exact -1.272775e-02+2.448044e-01j  2d -1.754085e-02+2.275394e-01j  rel 7.85e-02  (|window|/|I_B| = 0.139)
+eps=0.2: window centre exact -1.579714e+00-1.298290e+00j  2d -1.415760e+00-1.020971e+00j  rel 1.85e-01  (|window|/|I_B| = 1.160)
+eps=0.2: window right  exact 2.355816e-01-7.079492e-02j  2d 2.103611e-01-8.848769e-02j  rel 1.35e-01  (|window|/|I_B| = 0.140)
+eps=0.2: windows sum to I_B: 2.2e-16
+eps=0.1: window left   exact 3.187460e-01+9.592309e-02j  2d 2.954200e-01+6.613731e-02j  rel 1.25e-01  (|window|/|I_B| = 0.152)
+eps=0.1: window centre exact -1.795019e+00+1.755042e+00j  2d -1.595308e+00+1.671949e+00j  rel 9.36e-02  (|window|/|I_B| = 1.144)
+eps=0.1: window right  exact -9.642024e-02-3.195162e-01j  2d -7.991661e-02-2.919939e-01j  rel 1.06e-01  (|window|/|I_B| = 0.152)
+eps=0.1: windows sum to I_B: 0.0e+00
+eps=0.05: window left   exact -1.533506e-01-3.967272e-01j  2d -1.489924e-01-3.662599e-01j  rel 7.78e-02  (|window|/|I_B| = 0.157)
+eps=0.05: window centre exact 3.100604e+00+5.218615e-01j  2d 2.981475e+00+4.465439e-01j  rel 4.68e-02  (|window|/|I_B| = 1.158)
+eps=0.05: window right  exact -2.711901e-01+3.283556e-01j  2d -2.497592e-01+3.065377e-01j  rel 7.73e-02  (|window|/|I_B| = 0.157)
+eps=0.05: windows sum to I_B: 2.3e-16
+WINDOW GATE PASSED {'left': ['7.9e-02', '1.2e-01', '7.8e-02'], 'centre': ['1.8e-01', '9.4e-02', '4.7e-02'], 'right': ['1.3e-01', '1.1e-01', '7.7e-02']}
+eps=0.2 hw=1 ladder ++++++-     centre (np.int64(-32), np.int64(-20), np.int64(-44), np.int64(-32)): exact sum 3.811588e-02+5.571354e-02j (sum|.| 7.134e-01, coherence 9.46e-02) | LG sum 4.263358e-02+4.989408e-02j | |exact-LG|/sum|.| 1.03e-02  [4s]
+SMOKE ladder sub-box exact vs LG rel 1.03e-02 (need < 3e-2)
+SMOKE PASSED
+eps=0.2 s=0.4 window ladder centre (-32, -20, -44, -32) (50625 sectors): exact 8.072511e-04+1.195547e-03j | LG 8.596823e-04+1.006085e-03j | |exact/LG - 1| 1.49e-01 | coherence 4.82e-04  [359s]
+eps=0.2 s=0.4 window Tflip  centre (-28, 4, -60, -28) (50625 sectors): exact -4.704388e-02-1.836627e-02j | LG 4.164247e-03+1.768357e-03j | |exact/LG - 1| 1.22e+01 | coherence 2.42e-02  [354s]
+eps=0.2 s=0.4 window Bflip  centre (-36, -4, -68, -36) (50625 sectors): exact -5.863859e-03-4.601274e-02j | LG 1.045599e-03+4.203288e-03j | |exact/LG - 1| 1.17e+01 | coherence 2.23e-02  [347s]
+eps=0.2 s=0.4 window far    centre (16, 32, 0, 16) (50625 sectors): exact 1.487374e-20+6.204507e-20j | LG 2.448203e-05-4.096828e-06j | |exact/LG - 1| 1.00e+00 | coherence 8.23e-04  [348s]
+Fri Nov 20 23:06:05 UTC 2026
+eps=0.2 s=0.6 window ladder centre (-32, -20, -44, -32) (130321 sectors): exact -3.115423e-07-9.736395e-07j | LG -1.419296e-06-1.677094e-06j | |exact/LG - 1| 5.97e-01 | coherence 1.04e-07  [817s]
+eps=0.2 s=0.6 window Tflip  centre (-28, 4, -60, -28) (130321 sectors): exact -1.644546e-04+1.319824e-02j | LG 4.902810e-03-3.127219e-03j | |exact/LG - 1| 2.94e+00 | coherence 1.39e-03  [1092s]
+eps=0.2 s=0.6 window Bflip  centre (-36, -4, -68, -36) (130321 sectors): exact 1.259975e-02+2.706502e-03j | LG -3.745374e-03+4.420047e-03j | |exact/LG - 1| 2.84e+00 | coherence 1.36e-03  [882s]
+eps=0.2 s=0.6 window far    centre (16, 32, 0, 16) (130321 sectors): exact -6.013814e-22+1.324673e-21j | LG 3.332146e-07+3.603158e-06j | |exact/LG - 1| 1.00e+00 | coherence 5.37e-06  [748s]
+Sat Nov 21 00:05:11 UTC 2026
