@@ -640,3 +640,6 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     ladder LG; options 2/3 (end sectors with level-1 CS on B, T; both branches of the end chirals) are needed.
     Next: rerun with a box that closes coverage (extend T range and the positive sides; find the missing 20% first with
     a cheap coarse |S| scan of the shell outside the box).
+55. Missing-weight scan (shell_scan.py, stride 6, box L,R,B in [-72,32], T in [-36,36], eps = 0.3): sum|S| outside the
+    LOG 54 box = 22.5% of the sampled total, of which 20.1% via T < -12 alone (all other faces < 0.5% each). So the LOG 54
+    box was too short in m_T on the negative side. Rerun with T in [-48, 12] (run_partition.sh updated; ~7e6 sectors).

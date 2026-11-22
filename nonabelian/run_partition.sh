@@ -4,4 +4,4 @@ set -e; date -u
 (cd .. && python window_gate.py)
 python smoke_subbox.py
 python coverage_gate.py
-python partition.py 0.3 0.3 0 0 8 12 2.0; date -u
+python partition.py 0.3 0.3 0 0 8 12 2.0 -48; date -u

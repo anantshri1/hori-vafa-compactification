@@ -6,6 +6,7 @@ import sys, numpy as np, itertools, time
 from multiprocessing import Pool
 import optc_defs as O, fourier_sector as FS, elec_fourier as EF
 eps, r, xo, no, h, hT, w = float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6]), float(sys.argv[7])
+Tlo = int(sys.argv[8]) if len(sys.argv) > 8 else -hT   # lower end of the T range (LOG 55: weight extends to m_T << -12)
 x = xo if xo > 0 else np.exp(-eps/2)
 ns = int(round(2*np.log(1/eps)/eps)); n = no if no > 0 else 4*ns
 FS.set_r(r)
@@ -30,13 +31,13 @@ def slab(mT):
 if __name__ == "__main__":
     t0 = time.time(); tot = {}
     with Pool() as pool:
-        for i, d in enumerate(pool.imap_unordered(slab, range(-hT, hT + 1))):
+        for i, d in enumerate(pool.imap_unordered(slab, range(Tlo, hT + 1))):
             for p, v in d.items():
                 a = tot.setdefault(p, [0j, 0j]); a[0] += v[0]; a[1] += v[1]
-            print(f"  slab {i+1}/{2*hT+1} done [{time.time()-t0:.0f}s]", flush=True)
+            print(f"  slab {i+1}/{hT-Tlo+1} done [{time.time()-t0:.0f}s]", flush=True)
     Tex = sum(v[0] for v in tot.values()); Tlg = sum(v[1] for v in tot.values())
     pre = (x**(3*(1-r))*e*(y[0]*y[1])**2)**(n/2); Tel = EF.index(y, e, n, x, r, 40 if n > 10 else 10, Nf=1024)/pre
-    print(f"eps={eps} x={x:.4f} r={r} n={n} box L,R,B in [{-n-h},{h}], T in [{-hT},{hT}], w={w}")
+    print(f"eps={eps} x={x:.4f} r={r} n={n} box L,R,B in [{-n-h},{h}], T in [{Tlo},{hT}], w={w}")
     print(f"COVERAGE: sum of exact pieces {Tex:.8e}  vs  electric-side total {Tel:.8e}  rel {abs(Tex/Tel-1):.2e}")
     print(f"LG total (same lattice) {Tlg:.8e}   |LG/T - 1| = {abs(Tlg/Tel-1):.2e}")
     for p, v in sorted(tot.items(), key=lambda t: -abs(t[1][0]))[:14]:
