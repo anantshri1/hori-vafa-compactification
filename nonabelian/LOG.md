@@ -622,3 +622,21 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     fraction of T. The decisive version needs a smooth partition of unity covering ALL of flux space, with each piece
     computed exactly and with the ladder LG, and the pieces summing to T (coverage check). Affordable at eps = 0.3
     (nu* = 8, box +-3 nu*: ~6e6 sectors, ~1 h on cpu-upgrade); eps = 0.2 is ~1e8 sectors (~14 h).
+54. Full-space partition at eps = 0.3 (hfjob_partition.log; all three gates PASSED; n = 32, box L,R,B in [-40, 8],
+    T in [-12, 12], tanh width w = 2; ~3 h on cpu-upgrade).
+    COVERAGE FAILED: sum of exact pieces 1.5229+0.9871i vs electric-side total T = 1.4137+0.7009i (rel 1.9e-1): the box
+    misses ~20% of the index. By the rule set beforehand the run is VOID as a quantitative test. Qualitative content
+    (should survive a larger box, NOT guaranteed):
+       piece        exact / |T|   LG agreement |ex-LG|/|T|
+       ++++++- ladder    0.049          0.002   (exact = LG to 0.2% of T)
+       -+++++- B flip    0.348          0.396
+       -++-++- B & -T    0.398          0.377
+       +++-++- -T flip   0.249          0.265
+       -+-+++-, +-+-++-, ... 0.05-0.10 each, LG off by similar amounts
+    LG total on the same lattice: 0.104+0.399i vs T: |LG/T - 1| = 0.85.
+    Reading (provisional): the ladder region carries only ~5% of the index and there exact = ladder LG; ~100% of T sits
+    in the B-flip / -T-flip / both-flip regions (the K_eff = 1 ends), where the ladder LG is wrong. That is the opposite
+    of option 1 (flip pieces cancelling): they DOMINATE. If confirmed with full coverage, the 2d mirror is not the bare
+    ladder LG; options 2/3 (end sectors with level-1 CS on B, T; both branches of the end chirals) are needed.
+    Next: rerun with a box that closes coverage (extend T range and the positive sides; find the missing 20% first with
+    a cheap coarse |S| scan of the shell outside the box).
