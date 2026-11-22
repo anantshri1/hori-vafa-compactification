@@ -13,9 +13,9 @@ FS.set_r(r)
 yang, wang = [0.4, 1.1, -0.6], 0.9
 y3 = np.exp(1j*np.array(yang)); y = list(y3) + [1/np.prod(y3)]; e = np.exp(1j*wang); rat = [y[i+1]/y[i] for i in range(3)]
 fl = {'eta': 1/e, 'f1': rat[0], 'fT': rat[1]*x**(r/2), 'fB': rat[1]*x**(-r/2), 'f3': rat[2]}
-def slab(mT):
-    out = {}
-    for mL, mB, mR in itertools.product(range(-n - h, h + 1), repeat=3):
+def slab(task):
+    mT, mL = task; out = {}
+    for mB, mR in itertools.product(range(-n - h, h + 1), repeat=2):
         m = (mL, mT, mB, mR)
         ex = FS.sector(m, x, fl, n, Kc=12, Nf=128)
         if abs(ex) < 1e-300: continue
@@ -30,11 +30,17 @@ def slab(mT):
     return out
 if __name__ == "__main__":
     t0 = time.time(); tot = {}
-    with Pool() as pool:
-        for i, d in enumerate(pool.imap_unordered(slab, range(Tlo, hT + 1))):
+    import os, json
+    ncpu = len(os.sched_getaffinity(0)); tasks = [(mT, mL) for mT in range(Tlo, hT + 1) for mL in range(-n - h, h + 1)]
+    print(f"{len(tasks)} tasks on {ncpu} workers", flush=True)
+    with Pool(ncpu) as pool:
+        for i, d in enumerate(pool.imap_unordered(slab, tasks)):
             for p, v in d.items():
                 a = tot.setdefault(p, [0j, 0j]); a[0] += v[0]; a[1] += v[1]
-            print(f"  slab {i+1}/{hT-Tlo+1} done [{time.time()-t0:.0f}s]", flush=True)
+            if (i + 1) % 200 == 0 or i + 1 == len(tasks):
+                Tx = sum(v[0] for v in tot.values())
+                print(f"  {i+1}/{len(tasks)} tasks [{time.time()-t0:.0f}s]  running exact total {Tx:.6e}", flush=True)
+                json.dump({p: [v[0].real, v[0].imag, v[1].real, v[1].imag] for p, v in tot.items()}, open('partition_ckpt.json', 'w'))
     Tex = sum(v[0] for v in tot.values()); Tlg = sum(v[1] for v in tot.values())
     pre = (x**(3*(1-r))*e*(y[0]*y[1])**2)**(n/2); Tel = EF.index(y, e, n, x, r, 40 if n > 10 else 10, Nf=1024)/pre
     print(f"eps={eps} x={x:.4f} r={r} n={n} box L,R,B in [{-n-h},{h}], T in [{Tlo},{hT}], w={w}")

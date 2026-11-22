@@ -643,3 +643,7 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
 55. Missing-weight scan (shell_scan.py, stride 6, box L,R,B in [-72,32], T in [-36,36], eps = 0.3): sum|S| outside the
     LOG 54 box = 22.5% of the sampled total, of which 20.1% via T < -12 alone (all other faces < 0.5% each). So the LOG 54
     box was too short in m_T on the negative side. Rerun with T in [-48, 12] (run_partition.sh updated; ~7e6 sectors).
+56. Partition rerun (T in [-48,12]) hit the 6 h cap with no output: Pool() spawned os.cpu_count() workers (host cores)
+    on an ~4-effective-core container, so all 61 slabs ran concurrently and none finished (first run: 3.7 effective cores,
+    all 25 slabs finished together at 2.6 h). 7.2e6 sectors x 12 ms / 3.7 cores ~ 6.5 h > cap. Fix: Pool(len(
+    sched_getaffinity)), tasks split by (m_T, m_L) (3233 tasks), running total + JSON checkpoint every 200 tasks.
