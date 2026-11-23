@@ -1,0 +1,57 @@
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 25.0.1 -> 26.3
+[notice] To update, run: pip install --upgrade pip
+Sun Nov 22 18:09:24 UTC 2026
+eps=0.2: window left   exact -1.272775e-02+2.448044e-01j  2d -1.754085e-02+2.275394e-01j  rel 7.85e-02  (|window|/|I_B| = 0.139)
+eps=0.2: window centre exact -1.579714e+00-1.298290e+00j  2d -1.415760e+00-1.020971e+00j  rel 1.85e-01  (|window|/|I_B| = 1.160)
+eps=0.2: window right  exact 2.355816e-01-7.079492e-02j  2d 2.103611e-01-8.848769e-02j  rel 1.35e-01  (|window|/|I_B| = 0.140)
+eps=0.2: windows sum to I_B: 2.2e-16
+eps=0.1: window left   exact 3.187460e-01+9.592309e-02j  2d 2.954200e-01+6.613731e-02j  rel 1.25e-01  (|window|/|I_B| = 0.152)
+eps=0.1: window centre exact -1.795019e+00+1.755042e+00j  2d -1.595308e+00+1.671949e+00j  rel 9.36e-02  (|window|/|I_B| = 1.144)
+eps=0.1: window right  exact -9.642024e-02-3.195162e-01j  2d -7.991661e-02-2.919939e-01j  rel 1.06e-01  (|window|/|I_B| = 0.152)
+eps=0.1: windows sum to I_B: 0.0e+00
+eps=0.05: window left   exact -1.533506e-01-3.967272e-01j  2d -1.489924e-01-3.662599e-01j  rel 7.78e-02  (|window|/|I_B| = 0.157)
+eps=0.05: window centre exact 3.100604e+00+5.218615e-01j  2d 2.981475e+00+4.465439e-01j  rel 4.68e-02  (|window|/|I_B| = 1.158)
+eps=0.05: window right  exact -2.711901e-01+3.283556e-01j  2d -2.497592e-01+3.065377e-01j  rel 7.73e-02  (|window|/|I_B| = 0.157)
+eps=0.05: windows sum to I_B: 2.3e-16
+WINDOW GATE PASSED {'left': ['7.9e-02', '1.2e-01', '7.8e-02'], 'centre': ['1.8e-01', '9.4e-02', '4.7e-02'], 'right': ['1.3e-01', '1.1e-01', '7.7e-02']}
+eps=0.2 hw=1 ladder ++++++-     centre (np.int64(-32), np.int64(-20), np.int64(-44), np.int64(-32)): exact sum 3.811588e-02+5.571354e-02j (sum|.| 7.134e-01, coherence 9.46e-02) | LG sum 4.263358e-02+4.989408e-02j | |exact-LG|/sum|.| 1.03e-02  [3s]
+SMOKE ladder sub-box exact vs LG rel 1.03e-02 (need < 3e-2)
+SMOKE PASSED
+COVERAGE: sum of exact pieces 8.33636776e-03-1.54279537e-01j  vs  electric-side total 8.33635024e-03-1.54279524e-01j  rel 1.44e-07
+COVERAGE GATE PASSED
+2989 tasks on 64 workers
+  200/2989 tasks [2071s]  running exact total -4.972089e-03+9.061799e-03j
+  400/2989 tasks [4543s]  running exact total 8.704833e-04+1.468777e-02j
+  600/2989 tasks [7392s]  running exact total 8.864133e-03+4.961601e-02j
+  800/2989 tasks [10770s]  running exact total 1.884572e-02+1.060871e-01j
+  1000/2989 tasks [12897s]  running exact total 9.159753e-02+4.674017e-02j
+  1200/2989 tasks [14527s]  running exact total -9.340123e-03+2.470868e-01j
+  1400/2989 tasks [16105s]  running exact total 1.415882e-01+1.774030e-01j
+  1600/2989 tasks [17850s]  running exact total 3.841601e-02+3.500742e-01j
+  1800/2989 tasks [19457s]  running exact total 1.634397e-01-2.837964e-02j
+  2000/2989 tasks [21066s]  running exact total -3.714208e-01+2.041022e-01j
+  2200/2989 tasks [22641s]  running exact total 4.270682e-01-1.658110e-01j
+  2400/2989 tasks [24260s]  running exact total 7.909703e-01-2.315202e-01j
+  2600/2989 tasks [25915s]  running exact total 1.363581e+00+8.237322e-01j
+  2800/2989 tasks [27633s]  running exact total 1.439044e+00+7.276159e-01j
+  2989/2989 tasks [28897s]  running exact total 1.439031e+00+7.275966e-01j
+eps=0.3 x=0.8607 r=0.3 n=32 box L,R,B in [-40,8], T in [-48,12], w=2.0
+COVERAGE: sum of exact pieces 1.43903053e+00+7.27596575e-01j  vs  electric-side total 1.41372446e+00+7.00869575e-01j  rel 2.33e-02
+LG total (same lattice) 1.43682871e-01+9.25702483e-02j   |LG/T - 1| = 8.92e-01
+  piece -++-++-: exact 5.663047e-01+2.712645e-01j (|.|/|T| 0.398) | LG 2.574459e-02+2.113695e-02j | |ex-LG|/|T| 0.377
+  piece -+++++-: exact 3.837074e-01-1.016426e-01j (|.|/|T| 0.252) | LG 1.954091e-02+1.086277e-01j | |ex-LG|/|T| 0.266
+  piece +++-++-: exact 1.339008e-01+3.687301e-01j (|.|/|T| 0.249) | LG 8.409982e-02-4.622390e-02j | |ex-LG|/|T| 0.265
+  piece -+-+++-: exact 9.117519e-02+3.691678e-02j (|.|/|T| 0.062) | LG -7.934834e-03+2.172441e-02j | |ex-LG|/|T| 0.064
+  piece +-+-++-: exact 8.112215e-02+4.785112e-02j (|.|/|T| 0.060) | LG 1.516813e-02-1.767156e-02j | |ex-LG|/|T| 0.059
+  piece -+--++-: exact 3.161358e-02+6.927192e-02j (|.|/|T| 0.048) | LG -4.685603e-04+1.498500e-03j | |ex-LG|/|T| 0.048
+  piece --+-++-: exact 7.304449e-02-1.987329e-02j (|.|/|T| 0.048) | LG 5.208466e-04-1.840298e-03j | |ex-LG|/|T| 0.047
+  piece ++++++-: exact 2.451596e-02+1.462131e-02j (|.|/|T| 0.018) | LG -1.424055e-02-7.177705e-03j | |ex-LG|/|T| 0.028
+  piece -++-+--: exact 1.873298e-02-5.498871e-03j (|.|/|T| 0.012) | LG -1.536149e-04+1.592805e-03j | |ex-LG|/|T| 0.013
+  piece -++--+-: exact 7.788231e-03+1.771437e-02j (|.|/|T| 0.012) | LG 1.012261e-03-1.308981e-03j | |ex-LG|/|T| 0.013
+  piece ++--++-: exact -1.393352e-02+9.824054e-04j (|.|/|T| 0.009) | LG -1.871455e-03-6.894286e-05j | |ex-LG|/|T| 0.008
+  piece --++++-: exact -7.700310e-03-1.163859e-02j (|.|/|T| 0.009) | LG -1.285420e-03-1.450100e-03j | |ex-LG|/|T| 0.008
+  piece -+-+-+-: exact 5.685206e-03+1.238064e-02j (|.|/|T| 0.009) | LG 9.975801e-04+1.818048e-03j | |ex-LG|/|T| 0.007
+  piece -+++-+-: exact 4.319213e-03+1.287991e-02j (|.|/|T| 0.009) | LG -2.522119e-03+5.087343e-03j | |ex-LG|/|T| 0.007
+Mon Nov 23 02:15:02 UTC 2026

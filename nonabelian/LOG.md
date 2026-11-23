@@ -647,3 +647,20 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     on an ~4-effective-core container, so all 61 slabs ran concurrently and none finished (first run: 3.7 effective cores,
     all 25 slabs finished together at 2.6 h). 7.2e6 sectors x 12 ms / 3.7 cores ~ 6.5 h > cap. Fix: Pool(len(
     sched_getaffinity)), tasks split by (m_T, m_L) (3233 tasks), running total + JSON checkpoint every 200 tasks.
+57. Full-space partition, eps = 0.3, CLOSED to 2.3% (hfjob_partition3.log; gates PASSED; box L,R,B in [-40,8],
+    T in [-48,12], 2989 tasks, 8.0 h on cpu-upgrade). Sum of exact pieces 1.43903+0.72760i vs electric total T =
+    1.41372+0.70087i (rel 2.3e-2; residual consistent with the <0.5%-per-face tails of LOG 55).
+       piece                      exact/|T|   |ex-LG|/|T|
+       -++-++-  B & -T flipped      0.398        0.377
+       -+++++-  B flipped           0.252        0.266
+       +++-++-  -T flipped          0.249        0.265
+       -+-+++-, +-+-++-             0.06 each    0.06
+       -+--++-, --+-++-             0.05 each    0.05
+       ++++++-  ladder              0.018        0.028
+    LG total on the same lattice 0.1437+0.0926i: |LG/T - 1| = 0.89.
+    VERDICT (option 1 RULED OUT, up to the 2.3% coverage residual): the flipped pieces do not cancel; ~90% of the index
+    sits where B and/or -T are on the inverse branch, i.e. where K_eff = 1 on B and/or T (LOG 48a). The ladder region
+    proper carries ~2%. The bare ladder LG reproduces neither the pieces nor the total. What remains established: 3d
+    identity, Higgs limit = Gr(2,4), vacuum-level match 6 = 6 (critical points sit in the ladder chart), R-mixing
+    cancellation, Bethe counts. The S^2-level 2d mirror must include the end sectors: options 2/3 (level-1 CS on B, T
+    plus the inverse-branch monomials -1/w of the end chirals).
