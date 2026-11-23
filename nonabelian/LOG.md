@@ -664,3 +664,18 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     identity, Higgs limit = Gr(2,4), vacuum-level match 6 = 6 (critical points sit in the ladder chart), R-mixing
     cancellation, Bethe counts. The S^2-level 2d mirror must include the end sectors: options 2/3 (level-1 CS on B, T
     plus the inverse-branch monomials -1/w of the end chirals).
+58. Option 2 vs 3, first look (endtest_local.py; eps = 0.3, Gaussian windows sigma_m = 3 over 11^4 sectors):
+    NOTE on option 2: in the lattice comparison the CS/BF/zero-point monomials are EXACT on both sides (sector_lg keeps them),
+    so a level-1 CS term is already "in the LG"; the mismatch must come from the chiral factors of the end chirals.
+       window   ladder LG   end chirals |nu|-Bessel   end chirals EXACT (diagonals ladder-LG, vertical 1)
+       ladder     0.23          0.11                      0.06
+       B flip     0.24          0.49                      0.02
+       -T flip    0.41          0.42                      0.01
+       both       0.80          0.17                      0.01
+    (relative deviation of the windowed sum from exact). Keeping B and -T as FULL 3d chirals while the four diagonals are
+    replaced by their 2d exponentials and the vertical by 1 reproduces every window to 1-6%. The Bessel form of the end
+    chirals fails: in the flip regions they are not in the Bessel regime (x^{|nu|} not ~ eps), i.e. they stay "3d-like"
+    (Li2 regime). Conjecture: the 2d mirror is the ladder with K-theoretic ends, W ⊃ Li2-type terms for B and -T; with
+    the level-1 CS on B / T the branch flip is the Li2 inversion Li2(X) + Li2(1/X) = -pi^2/6 - (1/2) log^2(-X), i.e. the
+    U(1)_{1/2} + chiral <-> free chiral mechanism at the two ends. Small windows only: full-lattice test queued
+    (run_partition_ends.sh).

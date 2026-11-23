@@ -6,7 +6,8 @@ import sys, numpy as np, itertools, time
 from multiprocessing import Pool
 import optc_defs as O, fourier_sector as FS, elec_fourier as EF
 eps, r, xo, no, h, hT, w = float(sys.argv[1]), float(sys.argv[2]), float(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5]), int(sys.argv[6]), float(sys.argv[7])
-Tlo = int(sys.argv[8]) if len(sys.argv) > 8 else -hT   # lower end of the T range (LOG 55: weight extends to m_T << -12)
+Tlo = int(sys.argv[8]) if len(sys.argv) > 8 else -hT
+VARIANT = sys.argv[9] if len(sys.argv) > 9 else 'ladder'   # 'ends': diagonals ladder-LG, B and -T exact, vertical 1   # lower end of the T range (LOG 55: weight extends to m_T << -12)
 x = xo if xo > 0 else np.exp(-eps/2)
 ns = int(round(2*np.log(1/eps)/eps)); n = no if no > 0 else 4*ns
 FS.set_r(r)
@@ -19,7 +20,7 @@ def slab(task):
         m = (mL, mT, mB, mR)
         ex = FS.sector(m, x, fl, n, Kc=12, Nf=128)
         if abs(ex) < 1e-300: continue
-        lg = FS.sector_lg(m, x, fl, n, Kc=12, Nf=128)
+        lg = FS.sector_lg_end(m, x, fl, n, Kc=12, Nf=128, ends_exact=True) if VARIANT == 'ends' else FS.sector_lg(m, x, fl, n, Kc=12, Nf=128)
         _, nus, _, _ = FS.bookkeeping(m, x, fl, n)
         s = 0.5*(1 + np.tanh(np.array(nus)/w))
         # patterns with non-negligible weight: each chiral contributes both branches where s in (1e-6, 1-1e-6)

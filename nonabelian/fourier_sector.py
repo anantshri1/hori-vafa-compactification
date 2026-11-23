@@ -82,3 +82,28 @@ def set_r(rr):
     """Rebuild the chiral list with R-charge r = rr (vertical 2 - 2r). Q unchanged."""
     global CH
     CH = [(c[0], c[1], (2 - 2*rr) if i == 6 else rr) for i, c in enumerate(CH)]
+
+ENDS = [0, 3]        # B and -T: the chirals outside the superpotential triangles
+def coeffs_bessel_abs(nu, R, phase, x, Nf):
+    """Branch-correct Bessel approximant: exp[(zeta x^{R+|nu|} - x^{2-R+|nu|}/zeta)/(1-q)] with |nu| (both branches)."""
+    q = x*x; th = 2*np.pi*np.arange(Nf)/Nf; a = abs(nu)
+    zeta = (1 if nu % 2 == 0 else -1)*phase*np.exp(1j*th)
+    F = np.exp((zeta*x**(R + a) - x**(2 - R + a)/zeta)/(1 - q))
+    return np.fft.fft(F)/Nf
+def sector_lg_end(m, x, fl, n, Kc=16, Nf=256, ends_exact=False):
+    """Ladder LG for the four diagonals (signed-nu monomial), END chirals B, -T branch-correct (|nu| Bessel, or exact if
+    ends_exact), vertical = 1; zero points / CS / FI exact."""
+    ez, nus, C, lf = bookkeeping(m, x, fl, n)
+    ph = [np.exp(sum(c*lf[f] for f, c in flc.items())) for _, flc, _ in CH]
+    c = []
+    for i in range(7):
+        if i in ENDS: c.append(coeffs(nus[i], CH[i][2], ph[i], x, Nf) if ends_exact else coeffs_bessel_abs(nus[i], CH[i][2], ph[i], x, Nf))
+        elif i in LADDER: c.append(coeffs_lg(nus[i], CH[i][2], ph[i], x, Nf))
+        else: e = np.zeros(Nf, complex); e[0] = 1.0; c.append(e)
+    k0 = np.zeros(7, int); k0[BASIS] = np.round(np.linalg.solve(Qb, -ez)).astype(int)
+    t = np.arange(-Kc, Kc + 1); T1, T2, T3 = np.meshgrid(t, t, t, indexing='ij')
+    tot = np.ones_like(T1, dtype=complex)
+    for i in range(7):
+        k = k0[i] + CYC[0, i]*T1 + CYC[1, i]*T2 + CYC[2, i]*T3
+        tot = tot*c[i][np.mod(k, Nf)]
+    return C*tot.sum()
