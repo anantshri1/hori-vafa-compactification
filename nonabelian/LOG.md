@@ -695,3 +695,21 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     form; the ends are where this matters most. Not yet: (i) the variant "every chiral branch-correct, diagonals exact when
     flipped" to see the residual drop to O(eps); (ii) eps dependence; (iii) the analytic 2d form of the end sectors
     (Li2 + level-1 CS -> inversion identity).
+60. BRANCH-CORRECT model on the full lattice (hfjob_partition_branch.log; gates PASSED; eps = 0.3, same lattice):
+    every chiral on its inverse branch (nu <= 0) kept EXACT, diagonals with nu > 0 = ladder-LG exponentials, B and -T exact,
+    vertical = 1, monomials exact.
+       piece                exact/|T|  |ex - model|/|T|   (ends-only LOG 59 | bare ladder LOG 57)
+       -++-++- both ends      0.398       0.018              (0.060 | 0.377)
+       -+++++- B end          0.252       0.024              (0.042 | 0.266)
+       +++-++- -T end         0.249       0.023              (0.039 | 0.265)
+       -+-+++-, +-+-++-       0.06        0.016, 0.015       (0.043 | 0.06)
+       -+--++-, --+-++-       0.05        0.003, 0.002       (0.033 | 0.05)
+       ++++++- ladder         0.018       0.001              (0.003 | 0.028)
+       all others             <0.012      <= 0.011
+    Model total 1.1579+0.5814i: |model/T - 1| = 0.18 (ends-only 0.27, bare ladder 0.89).
+    Every piece now agrees to <= 2.4% of |T|; the total residual 18% is a COHERENT sum of small same-sign shortfalls (the
+    model is ~5-8% smaller in magnitude in the big pieces): a systematic, normalisation-type deficit, which is what an O(eps)
+    correction looks like (abelian benchmark at eps = 0.2: 8-18% per window). Not yet shown to be O(eps): needs the eps
+    dependence. Cheapest: the same run at eps = 0.4 (nu* = 5, n = 20; ~1/6 of the cost); if the residual grows ~ eps
+    (0.18 -> ~0.24), the rule "inverse-branch chirals stay K-theoretic, regular-branch diagonals become Hori-Vafa
+    exponentials" is confirmed at the S^2 level.
