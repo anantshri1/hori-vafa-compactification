@@ -679,3 +679,19 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     the level-1 CS on B / T the branch flip is the Li2 inversion Li2(X) + Li2(1/X) = -pi^2/6 - (1/2) log^2(-X), i.e. the
     U(1)_{1/2} + chiral <-> free chiral mechanism at the two ends. Small windows only: full-lattice test queued
     (run_partition_ends.sh).
+59. Full-lattice test of the END-CORRECTED model (hfjob_partition_ends.log; gates PASSED; same lattice, coverage 2.3%):
+    model = 4 diagonals as ladder-LG exponentials, B and -T EXACT 3d chirals, vertical = 1, all monomials exact.
+       piece                exact/|T|   |ex - model|/|T|   (bare ladder LG, LOG 57)
+       -++-++- both ends      0.398         0.060              0.377
+       -+++++- B end          0.252         0.042              0.266
+       +++-++- -T end         0.249         0.039              0.265
+       ++++++- ladder         0.018         0.003              0.028
+       pieces with a DIAGONAL flipped (-+-+++-, +-+-++-, -+--++-, --+-++-, ...): 0.03-0.06 each, model off by ~0.03-0.04 each
+    Model total 1.0281+0.5231i vs T: |model/T - 1| = 0.27 (bare ladder: 0.89).
+    Reading: keeping the two END chirals exact captures the dominant structure: the three end pieces (~90% of T) now agree
+    to 4-6% of |T| each, same sign and phase; the residual 27% is spread over the pieces where a DIAGONAL is on its
+    inverse branch (still approximated by the signed ladder monomial there) plus O(eps) at eps = 0.3 (abelian benchmark at
+    eps = 0.2: 8-18% per window). Consistent rule: a chiral on its inverse branch must be kept in full (Li2 / K-theoretic)
+    form; the ends are where this matters most. Not yet: (i) the variant "every chiral branch-correct, diagonals exact when
+    flipped" to see the residual drop to O(eps); (ii) eps dependence; (iii) the analytic 2d form of the end sectors
+    (Li2 + level-1 CS -> inversion identity).
