@@ -20,7 +20,7 @@ def slab(task):
         m = (mL, mT, mB, mR)
         ex = FS.sector(m, x, fl, n, Kc=12, Nf=128)
         if abs(ex) < 1e-300: continue
-        lg = FS.sector_lg_end(m, x, fl, n, Kc=12, Nf=128, ends_exact=True) if VARIANT == 'ends' else FS.sector_lg(m, x, fl, n, Kc=12, Nf=128)
+        lg = FS.sector_branch(m, x, fl, n, Kc=12, Nf=128) if VARIANT == 'branch' else (FS.sector_lg_end(m, x, fl, n, Kc=12, Nf=128, ends_exact=True) if VARIANT == 'ends' else FS.sector_lg(m, x, fl, n, Kc=12, Nf=128))
         _, nus, _, _ = FS.bookkeeping(m, x, fl, n)
         s = 0.5*(1 + np.tanh(np.array(nus)/w))
         # patterns with non-negligible weight: each chiral contributes both branches where s in (1e-6, 1-1e-6)

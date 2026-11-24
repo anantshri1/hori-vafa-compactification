@@ -107,3 +107,21 @@ def sector_lg_end(m, x, fl, n, Kc=16, Nf=256, ends_exact=False):
         k = k0[i] + CYC[0, i]*T1 + CYC[1, i]*T2 + CYC[2, i]*T3
         tot = tot*c[i][np.mod(k, Nf)]
     return C*tot.sum()
+
+def sector_branch(m, x, fl, n, Kc=16, Nf=256):
+    """Branch-correct model: B, -T exact; each diagonal = ladder-LG exponential if nu > 0, EXACT if nu <= 0 (inverse
+    branch / crossover); vertical = 1. Zero points / CS / FI exact."""
+    ez, nus, C, lf = bookkeeping(m, x, fl, n)
+    ph = [np.exp(sum(c*lf[f] for f, c in flc.items())) for _, flc, _ in CH]
+    c = []
+    for i in range(7):
+        if i in ENDS or (i in LADDER and nus[i] <= 0): c.append(coeffs(nus[i], CH[i][2], ph[i], x, Nf))
+        elif i in LADDER: c.append(coeffs_lg(nus[i], CH[i][2], ph[i], x, Nf))
+        else: e = np.zeros(Nf, complex); e[0] = 1.0; c.append(e)
+    k0 = np.zeros(7, int); k0[BASIS] = np.round(np.linalg.solve(Qb, -ez)).astype(int)
+    t = np.arange(-Kc, Kc + 1); T1, T2, T3 = np.meshgrid(t, t, t, indexing='ij')
+    tot = np.ones_like(T1, dtype=complex)
+    for i in range(7):
+        k = k0[i] + CYC[0, i]*T1 + CYC[1, i]*T2 + CYC[2, i]*T3
+        tot = tot*c[i][np.mod(k, Nf)]
+    return C*tot.sum()
