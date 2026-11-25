@@ -713,3 +713,16 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     dependence. Cheapest: the same run at eps = 0.4 (nu* = 5, n = 20; ~1/6 of the cost); if the residual grows ~ eps
     (0.18 -> ~0.24), the rule "inverse-branch chirals stay K-theoretic, regular-branch diagonals become Hori-Vafa
     exponentials" is confirmed at the S^2 level.
+61. Branch-correct model at eps = 0.4 (hfjob_partition_branch04.log; gates PASSED; n = 20, box L,R,B in [-25,5],
+    T in [-30,8]; coverage 4.2%, box slightly short; the model-vs-exact comparison is on the same lattice, unaffected).
+       piece           exact/|T|  |ex - model|/|T|  (eps = 0.3, LOG 60)
+       both ends         0.396       0.018            (0.018)
+       -T end            0.240       0.005            (0.023)
+       B end             0.236       0.009            (0.024)
+       ladder            0.057       0.003            (0.001)
+       others          <= 0.044    <= 0.005           (<= 0.016)
+    Model total vs T: 5.6% at eps = 0.4, against 18% at eps = 0.3.
+    VERDICT on the O(eps) hypothesis (LOG 60): FAILS, in the WRONG direction (O(eps) would give ~0.24 at 0.4). Something in
+    the model gets WORSE as eps decreases. Suspect: every diagonal with nu > 0 is treated as a Hori-Vafa exponential, but
+    that form holds only in the Bessel regime x^{|nu|} ~ eps (nu ~ nu* = (2/eps) ln(1/eps)); diagonals with 0 < nu << nu*
+    are in the crossover / Li2 regime, a window that grows as eps -> 0. Test: switch HV/exact at x^{nu} ~ eps, not nu = 0.
