@@ -108,15 +108,37 @@ def sector_lg_end(m, x, fl, n, Kc=16, Nf=256, ends_exact=False):
         tot = tot*c[i][np.mod(k, Nf)]
     return C*tot.sum()
 
-def sector_branch(m, x, fl, n, Kc=16, Nf=256):
+def sector_branch(m, x, fl, n, Kc=16, Nf=256, vert_exact=False):
     """Branch-correct model: B, -T exact; each diagonal = ladder-LG exponential if nu > 0, EXACT if nu <= 0 (inverse
     branch / crossover); vertical = 1. Zero points / CS / FI exact."""
     ez, nus, C, lf = bookkeeping(m, x, fl, n)
     ph = [np.exp(sum(c*lf[f] for f, c in flc.items())) for _, flc, _ in CH]
     c = []
     for i in range(7):
-        if i in ENDS or (i in LADDER and nus[i] <= 0): c.append(coeffs(nus[i], CH[i][2], ph[i], x, Nf))
+        if i in ENDS or (i in LADDER and nus[i] <= 0) or (vert_exact and i == 6): c.append(coeffs(nus[i], CH[i][2], ph[i], x, Nf))
         elif i in LADDER: c.append(coeffs_lg(nus[i], CH[i][2], ph[i], x, Nf))
+        else: e = np.zeros(Nf, complex); e[0] = 1.0; c.append(e)
+    k0 = np.zeros(7, int); k0[BASIS] = np.round(np.linalg.solve(Qb, -ez)).astype(int)
+    t = np.arange(-Kc, Kc + 1); T1, T2, T3 = np.meshgrid(t, t, t, indexing='ij')
+    tot = np.ones_like(T1, dtype=complex)
+    for i in range(7):
+        k = k0[i] + CYC[0, i]*T1 + CYC[1, i]*T2 + CYC[2, i]*T3
+        tot = tot*c[i][np.mod(k, Nf)]
+    return C*tot.sum()
+
+def sector_bessel(m, x, fl, n, Kc=16, Nf=256, frac=0.5):
+    """Bessel-regime switch: each diagonal's chiral function = s*HV + (1-s)*exact with
+    s = (1 + tanh((nu - frac*nu*)/(nu*/8)))/2, nu* = (2/eps) ln(1/eps) (where x^{nu*} = eps); B, -T exact; vertical 1."""
+    eps = -2*np.log(x); nst = 2*np.log(1/eps)/eps
+    ez, nus, C, lf = bookkeeping(m, x, fl, n)
+    ph = [np.exp(sum(c*lf[f] for f, c in flc.items())) for _, flc, _ in CH]
+    c = []
+    for i in range(7):
+        if i in ENDS: c.append(coeffs(nus[i], CH[i][2], ph[i], x, Nf))
+        elif i in LADDER:
+            s = 0.5*(1 + np.tanh((nus[i] - frac*nst)/(nst/8)))
+            ce = coeffs(nus[i], CH[i][2], ph[i], x, Nf)
+            c.append(ce if s < 1e-12 else s*coeffs_lg(nus[i], CH[i][2], ph[i], x, Nf) + (1 - s)*ce)
         else: e = np.zeros(Nf, complex); e[0] = 1.0; c.append(e)
     k0 = np.zeros(7, int); k0[BASIS] = np.round(np.linalg.solve(Qb, -ez)).astype(int)
     t = np.arange(-Kc, Kc + 1); T1, T2, T3 = np.meshgrid(t, t, t, indexing='ij')

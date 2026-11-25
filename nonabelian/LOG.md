@@ -726,3 +726,15 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     the model gets WORSE as eps decreases. Suspect: every diagonal with nu > 0 is treated as a Hori-Vafa exponential, but
     that form holds only in the Bessel regime x^{|nu|} ~ eps (nu ~ nu* = (2/eps) ln(1/eps)); diagonals with 0 < nu << nu*
     are in the crossover / Li2 regime, a window that grows as eps -> 0. Test: switch HV/exact at x^{nu} ~ eps, not nu = 0.
+62. Setup for the Bessel-switch test (fourier_sector.sector_bessel: each diagonal = s*HV + (1-s)*exact, s = tanh step at
+    nu = frac*nu*, width nu*/8; ends exact, vertical 1). Local Gaussian windows (eps = 0.3, 9^4 sectors, sigma_m ~ 2.4),
+    relative deviation from exact:
+       window     branch (LOG 60)   switch at nu*   vertical EXACT (branch model otherwise)
+       ladder        0.088             0.078          0.183
+       B / -T / both 0.006-0.010       same           0.021-0.034
+       diag-flipped  0.037             0.085          0.178
+    Local windows do NOT discriminate between the branch and switch models (both ~1% in the end windows); the 18% total
+    residual of LOG 60 is a coherent accumulation over the whole lattice, not visible window by window. Side result:
+    keeping the vertical chiral exact while the diagonals are HV exponentials makes every window WORSE -- consistent with
+    the triangle rule (the vertical drops together with the HV diagonals; mixing exact vertical + HV diagonals is
+    inconsistent). Full-lattice switch-at-nu* run queued (run_partition_bessel.sh).
