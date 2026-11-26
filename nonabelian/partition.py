@@ -39,8 +39,8 @@ if __name__ == "__main__":
             for p, v in d.items():
                 a = tot.setdefault(p, [0j, 0j]); a[0] += v[0]; a[1] += v[1]
             if (i + 1) % 200 == 0 or i + 1 == len(tasks):
-                Tx = sum(v[0] for v in tot.values())
-                print(f"  {i+1}/{len(tasks)} tasks [{time.time()-t0:.0f}s]  running exact total {Tx:.6e}", flush=True)
+                Tx = sum(v[0] for v in tot.values()); Tm = sum(v[1] for v in tot.values())
+                print(f"  {i+1}/{len(tasks)} tasks [{time.time()-t0:.0f}s]  running exact total {Tx:.6e}  running MODEL total {Tm:.6e}", flush=True)
                 json.dump({p: [v[0].real, v[0].imag, v[1].real, v[1].imag] for p, v in tot.items()}, open('partition_ckpt.json', 'w'))
     Tex = sum(v[0] for v in tot.values()); Tlg = sum(v[1] for v in tot.values())
     pre = (x**(3*(1-r))*e*(y[0]*y[1])**2)**(n/2); Tel = EF.index(y, e, n, x, r, 40 if n > 10 else 10, Nf=1024)/pre

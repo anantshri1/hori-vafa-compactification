@@ -738,3 +738,8 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     keeping the vertical chiral exact while the diagonals are HV exponentials makes every window WORSE -- consistent with
     the triangle rule (the vertical drops together with the HV diagonals; mixing exact vertical + HV diagonals is
     inconsistent). Full-lattice switch-at-nu* run queued (run_partition_bessel.sh).
+63. Bessel-switch full run (LOG 62) hit the 10 h cap at 2800/2989 tasks (~12.7 s/task, slower than the branch model
+    because each diagonal needs both the exact and the HV coefficients). The progress lines printed only the exact
+    running total (which had already reached the final exact value 1.43904+0.72761i, so the last 189 tasks are negligible
+    for the exact side), but not the model total, and the checkpoint JSON was inside the container: no model number
+    survives. Fix: progress lines now print the running MODEL total too; rerun with a 14 h cap.
