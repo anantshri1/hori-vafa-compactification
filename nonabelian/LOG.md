@@ -743,3 +743,17 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     running total (which had already reached the final exact value 1.43904+0.72761i, so the last 189 tasks are negligible
     for the exact side), but not the model total, and the checkpoint JSON was inside the container: no model number
     survives. Fix: progress lines now print the running MODEL total too; rerun with a 14 h cap.
+64. Bessel-switch model, full lattice, eps = 0.3 (hfjob_partition_bessel2.log; gates PASSED; completed, 10.6 h):
+    diagonals switch smoothly from exact to the HV exponential at nu ~ nu* (x^{nu} ~ eps); ends exact; vertical 1.
+       piece             exact/|T|   |ex - model|/|T|   (branch model, LOG 60)
+       both ends           0.398        0.007              (0.018)
+       B end               0.252        0.005              (0.024)
+       -T end              0.249        0.012              (0.023)
+       diag-flipped 0.06   0.06         0.013-0.014        (0.015-0.016)
+       others            <= 0.048     <= 0.012           (<= 0.011)
+    Total: |model/T - 1| = 0.11 (branch model 0.18, ends-only 0.27, bare ladder 0.89). Running totals show the model
+    tracking the exact sum through the whole lattice with the same ~10% shortfall in magnitude.
+    Reading: moving the HV switch to the Bessel edge helps (0.18 -> 0.11) and halves the error in the end pieces, so the
+    crossover regime was part of the residual. But 11% remains and is still a coherent same-sign shortfall, larger than
+    the branch model's 5.6% at eps = 0.4: the eps-trend is not yet established for this model. Next: the same Bessel-switch
+    model at eps = 0.4 (cheap, ~2-3 h) to get its trend; if 0.4 gives more than 0.11 the residual is O(eps)-like.
