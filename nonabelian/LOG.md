@@ -757,3 +757,18 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     crossover regime was part of the residual. But 11% remains and is still a coherent same-sign shortfall, larger than
     the branch model's 5.6% at eps = 0.4: the eps-trend is not yet established for this model. Next: the same Bessel-switch
     model at eps = 0.4 (cheap, ~2-3 h) to get its trend; if 0.4 gives more than 0.11 the residual is O(eps)-like.
+65. Bessel-switch model at eps = 0.4 (hfjob_partition_bessel04.log; gates PASSED) AND A METRIC CORRECTION.
+    The "LG total vs T" line of partition.py compares the model with the ELECTRIC total T, which includes the lattice's
+    coverage deficit (2.3% at 0.3, 4.2% at 0.4). The right comparison is model vs exact on the SAME lattice. Recomputed:
+                         model vs lattice-exact      (as reported before, vs electric T)
+       branch,  eps 0.3      0.196                      (0.179)
+       branch,  eps 0.4      0.015                      (0.056)
+       Bessel,  eps 0.3      0.129                      (0.111)
+       Bessel,  eps 0.4      0.064                      (0.019)
+    So LOG 60/61/64 numbers were contaminated by coverage; the conclusions about the trend get STRONGER, not weaker:
+    for BOTH models the residual is much larger at the smaller eps (branch 0.015 -> 0.196, Bessel 0.064 -> 0.129).
+    An O(eps) correction would shrink. Something systematic is missing and grows as eps -> 0. The per-piece numbers at
+    eps = 0.4 are all <= 0.8% of |T|, at 0.3 <= 1.4% (Bessel): the total residual is again a coherent accumulation.
+    Status: the end-corrected / branch-correct / Bessel-switch models are NOT shown to converge to the exact integrand as
+    eps -> 0. Next: map WHERE the residual accumulates (exact - model binned by (m_T, m_B) and by distance from the
+    Bessel edge), at eps = 0.3, instead of guessing further model variants.
