@@ -772,3 +772,13 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     Status: the end-corrected / branch-correct / Bessel-switch models are NOT shown to converge to the exact integrand as
     eps -> 0. Next: map WHERE the residual accumulates (exact - model binned by (m_T, m_B) and by distance from the
     Bessel edge), at eps = 0.3, instead of guessing further model variants.
+66. Abelian benchmark trend over eps = 0.4, 0.3, 0.2 (../window_trend.py; same windows as the gate):
+       window   eps 0.4   0.3    0.2
+       left     0.65      0.96   0.079
+       centre   0.35      0.30   0.185
+       right    0.56      0.89   0.135
+    Even the abelian pair, whose 2d limit is exactly known, is NOT asymptotic at eps = 0.3-0.4: errors 30-96%, non-
+    monotone, then a sharp drop by 0.2. So two-point eps-trends between 0.3 and 0.4 (LOG 61, 65) are not evidence either
+    way; the mirror "residual grows as eps decreases" may just be pre-asymptotic behaviour. The meaningful regime starts
+    around eps <= 0.2, where the full mirror lattice is ~1e8 sectors (tens of CPU-hours). Residual map at eps = 0.3
+    (resmap.py) queued anyway for STRUCTURE (where exact - model sits), not for the trend.
