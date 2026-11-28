@@ -782,3 +782,17 @@ Table tab:SQCD_index (N=2, F=4, r=1/5).
     way; the mirror "residual grows as eps decreases" may just be pre-asymptotic behaviour. The meaningful regime starts
     around eps <= 0.2, where the full mirror lattice is ~1e8 sectors (tens of CPU-hours). Residual map at eps = 0.3
     (resmap.py) queued anyway for STRUCTURE (where exact - model sits), not for the trend.
+67. Residual map, eps = 0.3 (hfjob_resmap.log; coverage gate PASSED; completed; exact total reproduces 1.43903+0.72760i).
+    By regime of the four diagonals (L-B, T-L, R-B, T-R; inv = nu <= 0, cross = 0 < nu < nu* = 8.0, bessel = nu >= nu*),
+    largest |exact - model| / |T| (Bessel-switch model; branch model in brackets):
+       inv,cross,cross,cross 0.028 (0.019) | cross,inv,cross,cross 0.027 (0.019) | inv,inv,inv,inv 0.026 (0.026)
+       cross,cross,cross,cross 0.017 (0.017) | then ~25 bins at 0.010-0.016 each.
+    By (m_T, m_B) blocks of 8: largest 0.082 (0.109) at (0,0), then 0.04-0.07 in ~10 blocks spread over the box.
+    Reading: the residual is DIFFUSE: no regime or block carries more than ~3% (regimes) / ~8% (blocks) of |T|; it is the
+    coherent sum of many small pieces. One structural hint: in the bin where all four diagonals are on the inverse branch
+    the model (diagonals AND ends exact there) is off by more than the exact value itself (0.026 vs |exact| 0.020 of |T|);
+    there the only approximation left is vertical = 1, i.e. the vertical chiral matters in regions where the triangle rule
+    puts it on its active side (the alternative charts of LOG 45). But LOG 62 found "vertical exact everywhere" worse in
+    local windows, so the right treatment of the vertical is not simply "exact".
+    Status: no single culprit; together with LOG 66 (abelian pair itself 30-96% off at eps 0.3-0.4) eps = 0.3 looks too
+    coarse to pin the 2d mirror at the S^2 level beyond the qualitative facts already found.
